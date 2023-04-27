@@ -5,7 +5,8 @@ import "../styles/PlayerHeader.css";
 //Icons
 import { BsArrowLeftShort } from "react-icons/bs";
 import { BsMusicNoteList } from "react-icons/bs";
-function PlayerHeader() {
+
+export function PlayerHeader() {
   return (
     <div className="PlayerHeader">
       <Link to="/">
@@ -18,5 +19,3 @@ function PlayerHeader() {
     </div>
   );
 }
-
-export default PlayerHeader;

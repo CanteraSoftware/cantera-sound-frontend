@@ -1,8 +1,7 @@
 import React from 'react';
 import '../styles/PlayerSlider.css'
 
-
-function PlayerSlider() {
+export function PlayerSlider() {
   return (
     <>
       <div className='PlayerSlider'>
@@ -35,5 +34,3 @@ function PlayerSlider() {
     </>
   );
 }
-
-export default PlayerSlider;
