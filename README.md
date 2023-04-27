@@ -1,2 +1,0 @@
-# cantera-sound-frontend
-
