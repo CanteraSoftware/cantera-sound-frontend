@@ -1,8 +1,8 @@
 import React from "react";
-import {PlayerHeader} from "./PlayerHeader";
-import {PlayerSlider} from "./PlayerSlider";
-import {PlayerButtons} from './PlayerButtons';
-import {FooterMenu} from "./FooterMenu"
+import {PlayerHeader} from "../components/PlayerHeader";
+import {PlayerSlider} from "../components/PlayerSlider";
+import {PlayerButtons} from '../components/PlayerButtons';
+import {FooterMenu} from "../components/FooterMenu"
 
 export function Player() {
   return (

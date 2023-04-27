@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Header } from "./components/Header";
-import { Song } from "./components/Song";
-import { Categories } from "./components/Categories";
-import { Add } from "./components/Add";
+import { Header } from "../components/Header";
+import { Song } from "../components/Song";
+import { Categories } from "../components/Categories";
+import { Add } from "../components/Add";
 import "./styles/Home.css";
 
 const songs = [

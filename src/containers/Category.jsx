@@ -1,7 +1,7 @@
 import React from "react";
-import { Header } from "./Header";
-import { Song } from "./Song";
-import { FooterMenu } from "./FooterMenu";
+import { Header } from "../components/Header";
+import { Song } from "../components/Song";
+import { FooterMenu } from "../components/FooterMenu";
 import "../styles/Category.css";
 
 const songs = [
