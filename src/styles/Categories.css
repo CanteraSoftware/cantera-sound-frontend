@@ -1,0 +1,33 @@
+.Categories {
+  width: 100%;
+}
+.Categories-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Categories-content {
+  width: 90px;
+  margin: 6px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+.circle {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 8px;
+  box-shadow: 0px 0px 24px 2px #011822;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Categories-icons {
+  font-size: 35px;
+  color: var(--icons-buttons);
+}
