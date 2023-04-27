@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "../Home";
-import { Player } from "../components/Player";
-import { Category } from "../components/Category";
-import { NotFound } from "../components/NotFound";
+import { Home } from "../containers/Home";
+import { Player } from "../containers/Player";
+import { Category } from "../containers/Category";
+import { NotFound } from "../containers/NotFound";
 
 function App() {
   return (
