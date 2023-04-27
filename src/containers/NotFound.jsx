@@ -19,7 +19,7 @@ export function NotFound(){
       <main>
       <div className="NotFound-content-imgError">
           <img className="NotFound-imgError" src={imgError} alt="gatoBurlon" />
-          <h1 className="NotFound-error-LineText">Oops!!<br/>Algo salió mal!!</h1>
+          <h1 className="NotFound-error-LineText">Oops!!<br/>No encontramos<br/>lo que buscabas.</h1>
           <Link className="NotFound-error-volver" to="/">Volver</Link>
       </div>
       </main>
