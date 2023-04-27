@@ -29,11 +29,11 @@
 .Header-search-input {
   width: 90%;
   height: 40px;
-  padding:0 10px 0 10px;
+  padding: 0 10px 0 10px;
   background: transparent;
   font-size: 1.6rem;
   font-weight: 300;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   color: var(--text-primary);
   /* border: none; */
   border: 1px solid var(--icons-buttons);
@@ -51,10 +51,15 @@
   place-items: center;
   border-radius: 0 10px 10px 0;
 }
-.Header-icons-search {
+.Header-icons-search,
+.Header-icons-search-btn {
   font-size: 24px;
   color: var(--circle-icons);
   cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.Header-icons-search-btn:hover {
+  color: var(--icons-buttons);
 }
 .Header-search {
   width: 100%;
