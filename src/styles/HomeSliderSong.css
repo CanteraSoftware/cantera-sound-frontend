@@ -5,13 +5,13 @@
   width: 300px;
   display: flex;
   flex-direction: column;
-
   position: relative;
   scroll-snap-align: start;
 }
 .Slider-song {
   width: 90%;
   display: flex;
+  text-decoration: none;
 }
 .Slider-song img {
   width: 48px;
