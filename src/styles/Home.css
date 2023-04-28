@@ -34,7 +34,7 @@
   background-color: var(--icons-buttons);
   font-size: 1.8rem;
   font-weight: 700;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   color: var(--text-primary);
   text-decoration: none;
   display: flex;

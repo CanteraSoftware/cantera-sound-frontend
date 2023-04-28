@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .Categories-content {
   width: 90px;
   margin: 6px 0 20px 0;
@@ -28,7 +29,15 @@
   justify-content: center;
   align-items: center;
 }
+.circle:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
 .Categories-icons {
   font-size: 35px;
   color: var(--icons-buttons);
+}
+.Categories-icons:hover {
+  color: var(--text-secundary);
+  transition: 0.3s, all;
 }
