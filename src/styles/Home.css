@@ -23,6 +23,13 @@
   background-color: var(--icons-buttons);
   border-radius: 10px;
 }
+.Song-container-sliderSong-space {
+  width: 300px;
+  background-color: transparent;
+  color: transparent;
+  position: relative;
+  scroll-snap-align: start;
+}
 .AddButton-button-container {
   width: 100%;
   padding: 0 20px;
