@@ -12,6 +12,7 @@
 .Slider-song {
   width: 90%;
   display: flex;
+  text-decoration: none;
 }
 .Slider-song img {
   width: 48px;
