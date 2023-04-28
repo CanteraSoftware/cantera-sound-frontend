@@ -14,12 +14,19 @@ export function Add({ see, notSee }) {
             <h2>Agrega Tu Archivo</h2>
             <div className='App-content'>
               <input className='App-input' type="text" placeholder='Nombre' />
+              <input className='App-input' type="text" placeholder='Artista / Autor' />
               <select className='App-input' >
+                <option value="" disabled selected hidden>Categorías</option>
                 <option>Música</option>
                 <option>Podcast</option>
                 <option>Audio libro</option>
               </select>
-              <input className='App-input' type="text" placeholder='Artista / Autor' />
+              <select className='App-input' >
+                <option value="" disabled selected hidden>Géneros</option>
+                <option>Comedia</option>
+                <option>Reggaeton</option>
+                <option>Misterio</option>
+              </select>
               <input
                 className='App-input-audio'
                 type="file"
