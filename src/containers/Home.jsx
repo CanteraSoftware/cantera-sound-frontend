@@ -17,14 +17,18 @@ export function Home() {
       <Header />
       <div className="Song-container">
         <h2>Canciones</h2>
-        {songs.map(({ title, artist, img }) => {
-          return <Song key={title} img={img} title={title} artist={artist} />;
-        })}
+        <div className="Song-container-sliderSong">
+          <HomeSliderSong />
+          <HomeSliderSong />
+          <HomeSliderSong />
+        </div>
       </div>
       <Categories />
-      <button className="AddButton-button-home" onClick={handleModal}>
-        Agrega Tu Archivo
-      </button>
+      <div className="AddButton-button-container">
+        <button className="AddButton-button" onClick={handleModal}>
+          Agrega Tu Archivo
+        </button>
+      </div>
       <Add see={seeModal} notSee={setSeeModal} />
     </div>
   );
