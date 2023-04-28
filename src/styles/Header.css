@@ -4,6 +4,7 @@
   position: fixed;
   top: 0;
   background: var(--background-header-menu);
+  z-index: 1;
 }
 .Header-title {
   width: 100%;
