@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {PlayerHeader} from "../components/PlayerHeader";
 import {PlayerSlider} from "../components/PlayerSlider";
 import {PlayerButtons} from '../components/PlayerButtons';

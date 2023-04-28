@@ -28,6 +28,14 @@ body {
   font-family: 'Ubuntu', sans-serif;
   background: var(--background);
 }
+body::-webkit-scrollbar {
+  width: 3px;
+  background-color: none;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--icons-buttons);
+  border-radius: 10px;
+}
 h1 {
   font-size: 2rem;
   color: var(--text-primary);
