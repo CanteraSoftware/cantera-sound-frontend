@@ -39,7 +39,6 @@
 }
 .FooterMenu-categories {
   height: 175px;
-  padding: 0 17px;
   position: absolute;
   background: var(--background);
   bottom: calc(100vh - 50vh - 87.5px);
