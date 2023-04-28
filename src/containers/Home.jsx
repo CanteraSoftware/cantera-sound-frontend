@@ -46,16 +46,11 @@ export function Home() {
       <div className="Song-container">
         <h2>Canciones</h2>
         {songs.map(({ title, artist, img }) => {
-          return <Song
-            key={title}
-            img={img}
-            title={title}
-            artist={artist}
-          />;
+          return <Song key={title} img={img} title={title} artist={artist} />;
         })}
       </div>
       <Categories />
-      <button className="AddButton-button" onClick={handleModal}>
+      <button className="AddButton-button-home" onClick={handleModal}>
         Agrega Tu Archivo
       </button>
       <Add see={seeModal} notSee={setSeeModal} />

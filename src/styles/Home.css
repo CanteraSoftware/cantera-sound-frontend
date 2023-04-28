@@ -9,14 +9,14 @@
   width: 100%;
   margin-top: 80px;
 }
-.AddButton-button {
+.AddButton-button-home {
   width: 100%;
   margin: 20px 0 40px 0;
   padding: 15px 0;
   background-color: var(--icons-buttons);
   font-size: 1.8rem;
   font-weight: 700;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   color: var(--text-primary);
   text-decoration: none;
   display: flex;
