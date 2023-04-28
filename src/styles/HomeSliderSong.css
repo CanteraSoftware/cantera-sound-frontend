@@ -5,7 +5,6 @@
   width: 300px;
   display: flex;
   flex-direction: column;
-
   position: relative;
   scroll-snap-align: start;
 }
