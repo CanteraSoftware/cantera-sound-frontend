@@ -1,23 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import songs from '../exports/songs'
+import { api } from '../exports/api';
 import '../styles/HomeSliderSong.css'
 
-export function HomeSliderSong() {
+export function HomeSliderSongOne() {
   return (
-    <div className='Slider'>
-      <div className="Slider-container">
-        {songs.map((song) => {
+    <div className='HomeSliderSong'>
+      <div className="HomeSliderSong-container">
+        {api.map((song) => {
           return (
-            <Link to='/player' key={song.title} className="Slider-song">
-              <img src={song.img} alt={song.title} />
-              <div className='Slider-description'>
-                <h3>{song.title}</h3>
-                <p>{song.artist}</p>
+            <Link to='/player' key={song.id} className="HomeSliderSong-song">
+              <img src={song.imageUrl} alt={song.nameFile} />
+              <div className='HomeSliderSong-description'>
+                <h3>{song.nameFile}</h3>
+                <p>{song.nameAuthor}</p>
               </div>
             </Link>
           )
-        })}
+        }).slice(0, 5)}
       </div>
     </div>
   );
