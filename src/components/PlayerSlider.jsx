@@ -24,7 +24,6 @@ export function PlayerSlider({ audioUrl, data, index, updateIndex}) {
   function handlePlayPause() {
     setIsPlaying(!isPlaying)
   }
-
   return (
     <>
       <audio
