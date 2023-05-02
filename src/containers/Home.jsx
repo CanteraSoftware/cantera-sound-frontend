@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Header } from "../components/Header";
-import { HomeSliderSongOne } from "../components/HomeSliderSong";
+import { HomeSliderSongOne } from "../components/HomeSliderSongOne";
 import { Categories } from "../components/Categories";
 import { Add } from "../components/Add";
 import "../styles/Home.css";
