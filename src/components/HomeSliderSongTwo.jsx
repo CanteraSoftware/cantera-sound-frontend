@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { api } from '../exports/api';
 import '../styles/HomeSliderSong.css'
 
-export function HomeSliderSongOne() {
+export function HomeSliderSongTwo() {
   return (
     <div className='HomeSliderSong'>
       <div className="HomeSliderSong-container">
@@ -17,7 +17,7 @@ export function HomeSliderSongOne() {
               </div>
             </Link>
           )
-        }).slice(0, 5)}
+        }).slice(5, 10)}
       </div>
     </div>
   );
