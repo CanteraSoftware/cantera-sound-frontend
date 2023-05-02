@@ -15,17 +15,22 @@
   place-items: center;
   text-decoration: none;
 }
+.FooterMenu-link:hover :nth-child(1),
+.FooterMenu-link:hover :nth-child(2) {
+  color: var(--text-primary);
+}
 .FooterMenu-icons {
   font-size: 24px;
   color: var(--icons-buttons);
 }
+
 .FooterMenu-container-categories {
   width: 100%;
   height: 100vh;
   position: fixed;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, .6);
+  background: rgba(0, 0, 0, 0.6);
   display: grid;
   place-items: center;
 }

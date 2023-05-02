@@ -58,6 +58,12 @@
 .App-btn-cancel {
   background: transparent;
 }
+.App-btn-cancel:hover {
+  transform: translateY(-3px);
+}
 .App-btn-save {
   background: var(--icons-buttons);
+}
+.App-btn-save:hover {
+  transform: translateY(-3px);
 }

@@ -23,6 +23,13 @@
   background-color: var(--icons-buttons);
   border-radius: 10px;
 }
+.Song-container-sliderSong-space {
+  width: 300px;
+  background-color: transparent;
+  color: transparent;
+  position: relative;
+  scroll-snap-align: start;
+}
 .AddButton-button-container {
   width: 100%;
   padding: 0 20px;
@@ -42,4 +49,10 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: 0.5s;
+}
+.AddButton-button:hover {
+  color: var(--icons-buttons);
+  box-shadow: inset 0 -3em 3em var(--text-primary),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }

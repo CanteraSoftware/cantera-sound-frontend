@@ -26,6 +26,7 @@ export function Home() {
       <Categories />
       <div className="AddButton-button-container">
         <button className="AddButton-button" onClick={handleModal}>
+          {" "}
           Agrega Tu Archivo
         </button>
       </div>
