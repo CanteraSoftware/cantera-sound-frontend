@@ -4,37 +4,30 @@
   justify-content: center;
   align-items: center;
 }
-.Song-container {
+.Home-song-container {
   width: 100%;
   margin-top: 80px;
   padding: 0 0 0 20px;
 }
-.Song-container-sliderSong {
+.Home-song-container-slider {
   display: flex;
   overflow-x: scroll;
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
 }
-.Song-container-sliderSong::-webkit-scrollbar {
+.Home-song-container-slider::-webkit-scrollbar {
   height: 2px;
   background-color: none;
 }
-.Song-container-sliderSong::-webkit-scrollbar-thumb {
+.Home-song-container-slider::-webkit-scrollbar-thumb {
   background-color: var(--icons-buttons);
   border-radius: 10px;
 }
-.Song-container-sliderSong-space {
-  width: 300px;
-  background-color: transparent;
-  color: transparent;
-  position: relative;
-  scroll-snap-align: start;
-}
-.AddButton-button-container {
+.Home-add-button-container {
   width: 100%;
   padding: 0 20px;
 }
-.AddButton-button {
+.Home-add-button {
   width: 100%;
   margin: 20px 0 40px 0;
   padding: 15px 0;
