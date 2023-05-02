@@ -2,14 +2,15 @@ import {React, useState, useEffect, useRef} from "react";
 import '../styles/PlayerSlider.css'
 import { PlayerButtons } from "./PlayerButtons";
 
-export function PlayerSlider({ audioUrl }) {
-  const [songDescription, setSongDescription] = useState({name: "M.A.",
-    artist: "Ni idea la verdad",
+export function PlayerSlider({ audioUrl, data, index}) {
+  const [songDescription, setSongDescription] = useState({name:'' , artist: ''
   })
 
+  useEffect(() => {
+    setSongDescription({name: data[index].nameFile, artist: data[index].nameAuthor})
+  }, [index])
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
-
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -34,13 +35,13 @@ export function PlayerSlider({ audioUrl }) {
       <div className='PlayerSlider'>
         <div className="PlayerSlider-container-slider">
           <section>
-            <img src="https://i1.sndcdn.com/artworks-jTy3zaoSBktD4e0K-qvgDwg-t500x500.jpg" alt="" />
+            <img src={data[index-1].imageUrl} alt="" />
           </section>
           <section>
-            <img src="https://lastfm.freetls.fastly.net/i/u/300x300/248a618cf08723dfccf2a39d3bf143a4.jpg" alt="" />
+            <img src={data[index].imageUrl} alt="" />
           </section>
           <section>
-            <img src="https://i.ytimg.com/vi/FpKERvWaWQs/maxresdefault.jpg" alt="" />
+            <img src={data[index+1].imageUrl} alt="" />
           </section>
         </div>
       </div>

@@ -27,9 +27,14 @@ button {
     height: 70px;
     border-radius: 50%;
     box-shadow: 0 0 24px 2px #011822;
-    padding-left: 4px;
+
 }
 .btnPlay{
+    font-size: 45px;
+    color: var(--icons-buttons);
+    padding-left: 4px;
+}
+.btnPause{
     font-size: 45px;
     color: var(--icons-buttons);
 }
