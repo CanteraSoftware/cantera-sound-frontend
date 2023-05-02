@@ -19,7 +19,7 @@ export function Header() {
         <div className="Header-content-title">
           <img className="Header-logoApp" src={logoApp} alt="" />
           <h1>
-            Cantera <span>Musica</span>
+            Cantera <span>Music</span>
           </h1>
         </div>
         <div className={`Header-search ${openSearch && "open"}`}>
