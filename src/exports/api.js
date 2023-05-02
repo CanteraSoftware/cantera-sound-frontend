@@ -1,10 +1,10 @@
 export const api = [
   {
     "id": 1,
-    "nameFile": "Finde",
-    "nameAuthor": "FMK, Ke personaje y BIG ONE",
-    "imageUrl": "https://is4-ssl.mzstatic.com/image/thumb/Music126/v4/d9/a3/cc/d9a3cccd-75e5-df27-f6db-f77a4fac9520/197188448271.jpg/1200x1200bf-60.jpg",
-    "fileUrl": "https://abril-cantera-songs.s3.sa-east-1.amazonaws.com/music/Finde-FMK-KePersonaje-BIGONE.mpeg",
+    "nameFile": "Cupido",
+    "nameAuthor": "TINI",
+    "imageUrl": "https://i.pinimg.com/originals/bc/14/16/bc1416fbff18a5759528a796cd44a654.jpg",
+    "fileUrl": "https://abril-cantera-songs.s3.sa-east-1.amazonaws.com/music/Cupido-TINI.mpeg",
     "categoryId": 1,
     "genderId": 1
   },
@@ -28,10 +28,10 @@ export const api = [
   },
   {
     "id": 4,
-    "nameFile": "Cupido",
-    "nameAuthor": "TINI",
-    "imageUrl": "https://i.pinimg.com/originals/bc/14/16/bc1416fbff18a5759528a796cd44a654.jpg",
-    "fileUrl": "https://abril-cantera-songs.s3.sa-east-1.amazonaws.com/music/Cupido-TINI.mpeg",
+    "nameFile": "Finde",
+    "nameAuthor": "FMK, Ke personaje y BIG ONE",
+    "imageUrl": "https://is4-ssl.mzstatic.com/image/thumb/Music126/v4/d9/a3/cc/d9a3cccd-75e5-df27-f6db-f77a4fac9520/197188448271.jpg/1200x1200bf-60.jpg",
+    "fileUrl": "https://abril-cantera-songs.s3.sa-east-1.amazonaws.com/music/Finde-FMK-KePersonaje-BIGONE.mpeg",
     "categoryId": 1,
     "genderId": 1
   },

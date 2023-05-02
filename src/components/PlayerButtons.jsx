@@ -9,14 +9,16 @@ import {BsRewindFill} from "react-icons/bs"
 import {BsFillFastForwardFill} from "react-icons/bs"
 import { BsRepeat1 } from "react-icons/bs"
 
-export function PlayerButtons({isPlaying, handlePlayPause}) {
+export function PlayerButtons({isPlaying, handlePlayPause, updateIndex, index}) {
   return(
     <div className="PlayerButtons">
       <div className="PlayerButtons-container">
         <button >
           <BsShuffle className="small"/>
         </button>
-        <button >
+        <button onClick={()=>{
+          updateIndex(index -1);
+        }}>
           <BsRewindFill className="small"/>
         </button>
         <button
@@ -25,7 +27,9 @@ export function PlayerButtons({isPlaying, handlePlayPause}) {
         >
           {isPlaying ? < BsPauseFill className="btnPause" /> : <BsPlayFill className="btnPlay" />}
         </button>
-        <button >
+        <button onClick={()=>{
+          {updateIndex(index + 1);}
+        }}>
           <BsFillFastForwardFill className="small"/>
         </button>
         <button >

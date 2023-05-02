@@ -2,7 +2,7 @@ import {React, useState, useEffect, useRef} from "react";
 import '../styles/PlayerSlider.css'
 import { PlayerButtons } from "./PlayerButtons";
 
-export function PlayerSlider({ audioUrl, data, index}) {
+export function PlayerSlider({ audioUrl, data, index, updateIndex}) {
   const [songDescription, setSongDescription] = useState({name:'' , artist: ''
   })
 
@@ -10,7 +10,7 @@ export function PlayerSlider({ audioUrl, data, index}) {
     setSongDescription({name: data[index].nameFile, artist: data[index].nameAuthor})
   }, [index])
   const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(true)
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -30,6 +30,8 @@ export function PlayerSlider({ audioUrl, data, index}) {
       <audio
         ref={audioRef}
         src={audioUrl}
+        autoPlay
+        // onEnded={updateIndex(index+1)}
       >
       </audio>
       <div className='PlayerSlider'>
@@ -58,7 +60,7 @@ export function PlayerSlider({ audioUrl, data, index}) {
           <span>2:40</span>
         </div>
       </section>
-      <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} />
+      <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} index={index} updateIndex={updateIndex}/>
     </>
   );
 }
