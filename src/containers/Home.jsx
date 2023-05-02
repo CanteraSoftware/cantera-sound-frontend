@@ -21,7 +21,6 @@ export function Home() {
           <HomeSliderSong />
           <HomeSliderSong />
           <HomeSliderSong />
-          <div className="Song-container-sliderSong-space">...........</div>
         </div>
       </div>
       <Categories />
