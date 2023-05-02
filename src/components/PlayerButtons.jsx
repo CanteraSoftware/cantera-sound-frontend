@@ -23,7 +23,7 @@ export function PlayerButtons({isPlaying, handlePlayPause}) {
           className="play-pause"
           onClick={handlePlayPause}
         >
-          {isPlaying ? < BsPauseFill className="btnPlay" /> : <BsPlayFill className="btnPlay" />}
+          {isPlaying ? < BsPauseFill className="btnPause" /> : <BsPlayFill className="btnPlay" />}
         </button>
         <button >
           <BsFillFastForwardFill className="small"/>
