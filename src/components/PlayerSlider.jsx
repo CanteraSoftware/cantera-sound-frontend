@@ -1,23 +1,36 @@
-import {React, useState, useEffect} from "react";
+import {React, useState, useEffect, useRef} from "react";
 import '../styles/PlayerSlider.css'
+import { PlayerButtons } from "./PlayerButtons";
 
-const URL_API = 'http://18.117.98.49:5000/api/v1/'
-
-
-
-export function PlayerSlider() {
+export function PlayerSlider({ audioUrl }) {
   const [songDescription, setSongDescription] = useState({name: "M.A.",
-  artist: "Ni idea la verdad",})
-  // useEffect(()=>{
-  //   fetch(`${URL_API}files`)
-  //     .then(response => response.json)
-  //     .then(data=>{
-  //       console.log(data)
-  //       setSongDescription(data[0])
-  //     })
-  // }, [])
+    artist: "Ni idea la verdad",
+  })
+
+  const audioRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play()
+      } else {
+        audioRef.current.pause()
+      }
+    }
+  }, [isPlaying])
+
+  function handlePlayPause() {
+    setIsPlaying(!isPlaying)
+  }
+
   return (
     <>
+      <audio
+        ref={audioRef}
+        src={audioUrl}
+      >
+      </audio>
       <div className='PlayerSlider'>
         <div className="PlayerSlider-container-slider">
           <section>
@@ -44,7 +57,7 @@ export function PlayerSlider() {
           <span>2:40</span>
         </div>
       </section>
-      
+      <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} />
     </>
   );
 }
