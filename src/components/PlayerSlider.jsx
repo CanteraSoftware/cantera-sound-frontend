@@ -1,33 +1,48 @@
-import {React, useState, useEffect} from "react";
+import {React, useState, useEffect, useRef} from "react";
 import '../styles/PlayerSlider.css'
+import { PlayerButtons } from "./PlayerButtons";
 
-const URL_API = 'http://18.117.98.49:5000/api/v1/'
+export function PlayerSlider({ audioUrl, data, index, updateIndex}) {
+  const [songDescription, setSongDescription] = useState({name:'' , artist: ''
+  })
 
+  useEffect(() => {
+    setSongDescription({name: data[index].nameFile, artist: data[index].nameAuthor})
+  }, [index])
+  const audioRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(true)
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play()
+      } else {
+        audioRef.current.pause()
+      }
+    }
+  }, [isPlaying])
 
-
-export function PlayerSlider() {
-  const [songDescription, setSongDescription] = useState({name: "M.A.",
-  artist: "Ni idea la verdad",})
-  // useEffect(()=>{
-  //   fetch(`${URL_API}files`)
-  //     .then(response => response.json)
-  //     .then(data=>{
-  //       console.log(data)
-  //       setSongDescription(data[0])
-  //     })
-  // }, [])
+  function handlePlayPause() {
+    setIsPlaying(!isPlaying)
+  }
   return (
     <>
+      <audio
+        ref={audioRef}
+        src={audioUrl}
+        autoPlay
+        
+      >
+      </audio>
       <div className='PlayerSlider'>
         <div className="PlayerSlider-container-slider">
           <section>
-            <img src="https://i1.sndcdn.com/artworks-jTy3zaoSBktD4e0K-qvgDwg-t500x500.jpg" alt="" />
+            <img src={data[index-1].imageUrl} alt="" />
           </section>
           <section>
-            <img src="https://lastfm.freetls.fastly.net/i/u/300x300/248a618cf08723dfccf2a39d3bf143a4.jpg" alt="" />
+            <img src={data[index].imageUrl} alt="" />
           </section>
           <section>
-            <img src="https://i.ytimg.com/vi/FpKERvWaWQs/maxresdefault.jpg" alt="" />
+            <img src={data[index+1].imageUrl} alt="" />
           </section>
         </div>
       </div>
@@ -44,7 +59,7 @@ export function PlayerSlider() {
           <span>2:40</span>
         </div>
       </section>
-      
+      <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} index={index} updateIndex={updateIndex}/>
     </>
   );
 }
