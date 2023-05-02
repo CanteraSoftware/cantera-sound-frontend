@@ -4,23 +4,23 @@ import '../styles/NotFound.css'
 
 
 import logoApp from '../images/cat.png';
-import imgError from '../images/pexels-lucas-pezeta-2930204.png'
+import imgError from '../images/error404.jpg'
 
 export function NotFound(){
   return(
     
-    <div className='NotFound-header'>
-      <div className="NotFound-header-title">
-        <div className="NotFound-header-content-title">
-          <img className="NotFound-header-logoApp" src={logoApp} alt="" />
+    <div className='notFound-header'>
+      <div className="notFound-header-title">
+        <div className="notFound-header-content-title">
+          <img className="notFound-header-logoApp" src={logoApp} alt="" />
             <h1>Cantera <span>Music</span></h1>
         </div>
       </div>
       <main>
-      <div className="NotFound-content-imgError">
-          <img className="NotFound-imgError" src={imgError} alt="gatoBurlon" />
-          <h1 className="NotFound-error-LineText">Oops!!<br/>No encontramos<br/>lo que buscabas.</h1>
-          <Link className="NotFound-error-volver" to="/">Volver</Link>
+      <div className="notFound-content-imgError">
+          <img className="notFound-imgError" src={imgError} alt="mayonesaCat" />
+          <h1 className="notFound-error-LineText">Oops!!<br/>Lo solicitado<br/>no existe</h1>
+          <Link className="notFound-error-volver" to="/">Volver</Link>
       </div>
       </main>
     </div>
