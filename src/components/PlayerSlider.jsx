@@ -30,7 +30,7 @@ export function PlayerSlider({ audioUrl, data, index, updateIndex}) {
         ref={audioRef}
         src={audioUrl}
         autoPlay
-        // onEnded={updateIndex(index+1)}
+        
       >
       </audio>
       <div className='PlayerSlider'>
