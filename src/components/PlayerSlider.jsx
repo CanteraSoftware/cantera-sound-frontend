@@ -48,7 +48,7 @@ export function PlayerSlider({ audioUrl, data, index, updateIndex}) {
       </div>
       <section className='PlayerSlider-container-description'>
         <div className="PlayerSlider-description">
-          <h3>{songDescription.name}</h3>
+          <h4>{songDescription.name}</h4>
           <p>{songDescription.artist}</p>
         </div>
         <div className="Progressline">
