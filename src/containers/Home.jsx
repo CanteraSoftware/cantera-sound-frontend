@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Header } from "../components/Header";
-import { HomeSliderSongOne } from "../components/HomeSliderSongOne";
-import { HomeSliderSongTwo } from "../components/HomeSliderSongTwo";
-import { HomeSliderSongThree } from "../components/HomeSliderSongThree";
+import { HomeSwiperSlider } from "../components/HomeSwiperSlider";
 import { Categories } from "../components/Categories";
 import { Add } from "../components/Add";
 import "../styles/Home.css";
@@ -20,9 +18,7 @@ export function Home() {
       <div className="Home-song-container">
         <h2>Canciones</h2>
         <div className="Home-song-container-slider">
-          <HomeSliderSongOne />
-          <HomeSliderSongTwo />
-          <HomeSliderSongThree />
+          <HomeSwiperSlider />
         </div>
       </div>
       <Categories />
