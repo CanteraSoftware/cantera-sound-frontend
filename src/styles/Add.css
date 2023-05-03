@@ -76,6 +76,16 @@
   height: 110px;
   display: flex;
 }
+input[type="file" i]::-webkit-file-upload-button {
+  margin: 13px 0;
+  padding: 5px 10px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--icons-buttons);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
 .App-container-btn {
   width: 100%;
   display: flex;
