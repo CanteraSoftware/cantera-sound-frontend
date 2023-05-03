@@ -77,14 +77,15 @@
   display: flex;
 }
 input[type="file" i]::-webkit-file-upload-button {
-  margin: 13px 0;
-  padding: 5px 10px;
+  margin: 7px 0;
   background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--icons-buttons);
-  border-radius: 5px;
+  color: transparent;
+  border: none;
   display: flex;
   flex-direction: column;
+}
+input[type="file" i] {
+  color: var(--text-primary);
 }
 .App-container-btn {
   width: 100%;
