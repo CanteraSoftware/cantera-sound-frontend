@@ -2,6 +2,7 @@ import React from 'react';
 import { HomeSliderSongOne } from "./HomeSliderSongOne";
 import { HomeSliderSongTwo } from "./HomeSliderSongTwo";
 import { HomeSliderSongThree } from "./HomeSliderSongThree";
+import '../styles/HomeSwiperSlider.css'
 
 //swiper
 import { Swiper, SwiperSlide } from "swiper/react";
