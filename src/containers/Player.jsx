@@ -8,15 +8,15 @@ import { useEffect } from 'react';
 
 export function Player() {
   const url = 'http://18.117.98.49:5000/api/v1/files'
-
+  const [isLoading, setIsloading] = useState(false)
   const [api, setApi] = useState([])
   useEffect(()=>{
     fetch(url)
       .then(response => response.json())
       .then(data=>{
-        console.log(data[1].fileUrl);
-        
+        console.log(data);
         setApi(data)
+        setIsloading(true);
       })
   },[])
 
@@ -25,7 +25,7 @@ export function Player() {
   return (
     <div className="Player">
       <PlayerHeader />
-      <PlayerSlider api={api} />
+      {isLoading ? <PlayerSlider api={api}/> :<div>Loading...</div> }
       <FooterMenu/>
     </div>
   )
