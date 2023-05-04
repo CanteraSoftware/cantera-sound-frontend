@@ -1,15 +1,14 @@
-import {React, useState, useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-// import {api} from '../exports/api';
+// import { api } from '../exports/api';
 import '../styles/HomeSliderSong.css'
 
 export function HomeSliderSongOne({api}) {
-  
   return (
     <div className='HomeSliderSong'>
       <div className="HomeSliderSong-container">
         {api.map((song) => {
-            return(
+          return (
             <Link to='/player' key={song.id} className="HomeSliderSong-song">
               <img src={song.imageUrl} alt={song.nameFile} />
               <div className='HomeSliderSong-description'>
@@ -17,7 +16,7 @@ export function HomeSliderSongOne({api}) {
                 <p>{song.nameAuthor}</p>
               </div>
             </Link>
-            )
+          )
         }).slice(0, 5)}
       </div>
     </div>

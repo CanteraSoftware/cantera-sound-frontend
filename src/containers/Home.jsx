@@ -7,17 +7,18 @@ import "../styles/Home.css";
 import { useEffect } from "react";
 
 export function Home() {
-  const [api, setApi] = useState([])
-  const API = 'http://18.117.98.49:5000/api/v1/files';
-  useEffect(()=>{
-    fetch(API)
-    .then(res => res.json())
-    .then(data=>{
-      setApi(data)
-    })
-  },[])
-  const [seeModal, setSeeModal] = useState(false);
+  const url = 'http://18.117.98.49:5000/api/v1/files'
 
+  const [api, setApi] = useState([])
+  useEffect(()=>{
+    fetch(url)
+      .then(response => response.json())
+      .then(data=>{
+        setApi(data)
+      })
+  },[])
+  
+  const [seeModal, setSeeModal] = useState(false);
   const handleModal = () => {
     setSeeModal(!seeModal);
   };
@@ -28,7 +29,7 @@ export function Home() {
       <div className="Home-song-container">
         <h2>Canciones</h2>
         <div className="Home-song-container-slider">
-          <HomeSwiperSlider />
+          <HomeSwiperSlider api={api} />
         </div>
       </div>
       <Categories />
