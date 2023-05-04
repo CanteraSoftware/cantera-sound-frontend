@@ -10,7 +10,7 @@ export function Song({title, artist, img}) {
           <Link className='Song-content' to='/player'>
             <img src={img} alt="" />
             <div className="Song-description">
-              <h4>{ title }</h4>
+              <h3>{ title }</h3>
               <p>{ artist }</p>
             </div>
           </Link>
