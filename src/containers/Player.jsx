@@ -12,8 +12,8 @@ export function Player() {
   useEffect(() => {
     fetch(url)
       .then(response => response.json())
-      .then(data => {
-        console.log(data);
+      .then(data=>{
+        console.log({data});
         setApi(data)
         setIsloading(true);
       })

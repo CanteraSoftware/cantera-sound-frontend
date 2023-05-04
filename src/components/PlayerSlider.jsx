@@ -5,7 +5,7 @@ import '../styles/PlayerSlider.css'
 export function PlayerSlider({api}) {
   const [songDescription, setSongDescription] = useState({name:'' , artist: ''
   })
-  const [index, setIndex] = useState(1)
+  const [index, setIndex] = useState(0)
   
   const updateIndex = (newVal)=>{
     setIndex(newVal)
@@ -34,20 +34,20 @@ export function PlayerSlider({api}) {
       <audio
         ref={audioRef}
         src={api[index].fileUrl}
-        autoPlay
+        // autoPlay
         loop
       >
       </audio>
       <div className='PlayerSlider'>
         <div className="PlayerSlider-container-slider">
           <section>
-            <img src={api[index-1].imageUrl} alt="" />
+            {index<1 ? <div className="none"></div> :<img src={api[index-1].imageUrl} alt="" />}
           </section>
           <section>
             <img src={api[index].imageUrl} alt="" />
           </section>
           <section>
-            <img src={api[index+1].imageUrl} alt="" />
+            {index>=api.length-1 ?  <div className="none"></div> : <img src={api[index+1].imageUrl} alt="" />}
           </section>
         </div>
       </div>
@@ -64,7 +64,7 @@ export function PlayerSlider({api}) {
           <span>2:40</span>
         </div>
       </section>
-      <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} index={index} updateIndex={updateIndex}/>
+      <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} api={api} index={index} updateIndex={updateIndex}/>
     </>
   );
 }

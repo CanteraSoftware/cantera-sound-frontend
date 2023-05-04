@@ -22,6 +22,10 @@
   border-radius: 10px;
   box-shadow: 2px 2px 4px  #011822, -2px -2px 4px #ffffff2f;
 }
+.PlayerSlider-container-slider section .none{
+  width: 230px;
+  height: 230px;
+}
 .PlayerSlider-container-description {
   width: 100%;
   display: grid;
