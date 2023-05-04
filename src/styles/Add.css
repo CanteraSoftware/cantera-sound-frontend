@@ -39,7 +39,7 @@
   left: 40px;
   background: var(--background);
   font-size: 1.4rem;
-  color: var(--title);
+  color: var(--text-secundary);
 }
 .App-content-input .artist {
   top: 125px;
