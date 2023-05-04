@@ -28,7 +28,7 @@ export function PlayerSlider({api}) {
   function handlePlayPause() {
     setIsPlaying(!isPlaying)
   }
-  
+
   return (
     <>
       <audio
