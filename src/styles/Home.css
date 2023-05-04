@@ -7,21 +7,7 @@
 .Home-song-container {
   width: 100%;
   margin-top: 80px;
-  padding: 0 0 0 20px;
-}
-.Home-song-container-slider {
-  display: flex;
-  overflow-x: scroll;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
-}
-.Home-song-container-slider::-webkit-scrollbar {
-  height: 2px;
-  background-color: none;
-}
-.Home-song-container-slider::-webkit-scrollbar-thumb {
-  background-color: var(--icons-buttons);
-  border-radius: 10px;
+  padding: 0 20px 0 20px;
 }
 .Home-add-button-container {
   width: 100%;
