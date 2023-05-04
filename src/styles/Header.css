@@ -59,7 +59,8 @@
   cursor: pointer;
   transition: 0.3s ease-in-out all;
 }
-.Header-icons-search-btn:hover {
+.Header-icons-search-btn:hover,
+.Header-icons-search:hover {
   color: var(--icons-buttons);
 }
 .Header-search {
