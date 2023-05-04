@@ -2,22 +2,30 @@ import React from 'react';
 import {PlayerHeader} from "../components/PlayerHeader";
 import {PlayerSlider} from "../components/PlayerSlider";
 import {FooterMenu} from "../components/FooterMenu"
-import { api } from '../exports/api';
+
 import { useState } from 'react';
 import { useEffect } from 'react';
 
 export function Player() {
-  // const URL_API = 'http://18.117.98.49:5000/api/v1/'
-  const [index, setIndex] = useState(1)
+  const url = 'http://18.117.98.49:5000/api/v1/files'
+
+  const [api, setApi] = useState([])
+  useEffect(()=>{
+    fetch(url)
+      .then(response => response.json())
+      .then(data=>{
+        console.log(data[1].fileUrl);
+        
+        setApi(data)
+      })
+  },[])
+
   
-  const updateIndex = (newVal)=>{
-    setIndex(newVal)
-  }
   
   return (
     <div className="Player">
       <PlayerHeader />
-      <PlayerSlider audioUrl={api[index].fileUrl} data={api} index={index} updateIndex={updateIndex} />
+      <PlayerSlider api={api} />
       <FooterMenu/>
     </div>
   )

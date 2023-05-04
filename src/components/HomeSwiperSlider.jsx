@@ -10,7 +10,7 @@ import { Pagination } from 'swiper';
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.min.css';
 
-export function HomeSwiperSlider() {
+export function HomeSwiperSlider({api}) {
   return (
     <Swiper
       className='HomeSliderSong'
@@ -19,9 +19,9 @@ export function HomeSwiperSlider() {
       slidesPerView={1}
       pagination={{ clickable: true }}
     >
-      <SwiperSlide><HomeSliderSongOne /></SwiperSlide>
-      <SwiperSlide><HomeSliderSongTwo /></SwiperSlide>
-      <SwiperSlide><HomeSliderSongThree /></SwiperSlide>
+      <SwiperSlide><HomeSliderSongOne api={api}/></SwiperSlide>
+      <SwiperSlide><HomeSliderSongTwo api={api}/></SwiperSlide>
+      <SwiperSlide><HomeSliderSongThree api={api}/></SwiperSlide>
     </Swiper>
   );
 }
