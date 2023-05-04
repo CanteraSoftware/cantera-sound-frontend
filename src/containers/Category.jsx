@@ -20,7 +20,6 @@ export function Category() {
     <div>
       <Header />
       <div className="Category">
-        <Song />
         <div className="Category-song-container">
           <h2>Canciones</h2>
           {api.map((song) => {
