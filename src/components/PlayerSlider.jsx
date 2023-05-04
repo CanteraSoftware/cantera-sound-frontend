@@ -1,8 +1,8 @@
 import {React, useState, useEffect, useRef} from "react";
-import '../styles/PlayerSlider.css'
 import { PlayerButtons } from "./PlayerButtons";
+import '../styles/PlayerSlider.css'
 
-export function PlayerSlider({ api}) {
+export function PlayerSlider({api}) {
   const [songDescription, setSongDescription] = useState({name:'' , artist: ''
   })
   const [index, setIndex] = useState(1)
@@ -35,7 +35,7 @@ export function PlayerSlider({ api}) {
         ref={audioRef}
         src={api[index].fileUrl}
         autoPlay
-        
+        loop
       >
       </audio>
       <div className='PlayerSlider'>
