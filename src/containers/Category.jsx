@@ -2,9 +2,7 @@ import {React, useState, useEffect } from "react";
 import { Header } from "../components/Header";
 import { Song } from "../components/Song";
 import { FooterMenu } from "../components/FooterMenu";
-// import { api } from "../exports/api";
 import "../styles/Category.css";
-
 
 export function Category() {
   const url = 'http://18.117.98.49:5000/api/v1/files'
