@@ -34,7 +34,7 @@ export function PlayerSlider({api}) {
       <audio
         ref={audioRef}
         src={api[index].fileUrl}
-        // autoPlay
+        autoPlay
         loop
       >
       </audio>
