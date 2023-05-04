@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../exports/api';
+// import { api } from '../exports/api';
 import '../styles/HomeSliderSong.css'
 
-export function HomeSliderSongThree() {
+export function HomeSliderSongThree({api}) {
   return (
     <div className='HomeSliderSong'>
       <div className="HomeSliderSong-container">

@@ -2,15 +2,15 @@ import {React, useState, useEffect, useRef} from "react";
 import '../styles/PlayerSlider.css'
 import { PlayerButtons } from "./PlayerButtons";
 
-export function PlayerSlider({ audioUrl, data, index, updateIndex}) {
+export function PlayerSlider({ audioUrl, api, index, updateIndex}) {
   const [songDescription, setSongDescription] = useState({name:'' , artist: ''
   })
 
   useEffect(() => {
-    setSongDescription({name: data[index].nameFile, artist: data[index].nameAuthor})
+    setSongDescription({name: api[index].nameFile, artist: api[index].nameAuthor})
   }, [index])
   const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(false)
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -29,20 +29,20 @@ export function PlayerSlider({ audioUrl, data, index, updateIndex}) {
       <audio
         ref={audioRef}
         src={audioUrl}
-        autoPlay
+
         
       >
       </audio>
       <div className='PlayerSlider'>
         <div className="PlayerSlider-container-slider">
           <section>
-            <img src={data[index-1].imageUrl} alt="" />
+            <img src={api[index-1].imageUrl} alt="" />
           </section>
           <section>
-            <img src={data[index].imageUrl} alt="" />
+            <img src={api[index].imageUrl} alt="" />
           </section>
           <section>
-            <img src={data[index+1].imageUrl} alt="" />
+            <img src={api[index+1].imageUrl} alt="" />
           </section>
         </div>
       </div>

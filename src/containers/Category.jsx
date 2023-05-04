@@ -2,7 +2,7 @@ import React from "react";
 import { Header } from "../components/Header";
 import { Song } from "../components/Song";
 import { FooterMenu } from "../components/FooterMenu";
-import { api } from "../exports/api";
+// import { api } from "../exports/api";
 import "../styles/Category.css";
 
 export function Category() {
