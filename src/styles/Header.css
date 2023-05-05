@@ -52,6 +52,15 @@
   place-items: center;
   border-radius: 0 10px 10px 0;
 }
+.Header-icons-search-lupa {
+  font-size: 24px;
+  color: var(--circle-icons);
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.Header-icons-search-lupa:hover {
+  color: var(--text-secundary);
+}
 .Header-icons-search,
 .Header-icons-search-btn {
   font-size: 24px;
