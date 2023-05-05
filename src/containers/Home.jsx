@@ -6,7 +6,7 @@ import { Add } from "../components/Add";
 import "../styles/Home.css";
 
 export function Home() {
-  const url = 'http://18.117.98.49:5000/api/v1/files'
+  const url = 'http://18.117.98.49:5000/api/v1/categories/1'
 
   const [api, setApi] = useState([])
   const [seeModal, setSeeModal] = useState(false);
@@ -15,10 +15,10 @@ export function Home() {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        setApi(data)
+        setApi(data.files)
       })
   }, [])
-  
+
   const handleModal = () => {
     setSeeModal(!seeModal);
   };
