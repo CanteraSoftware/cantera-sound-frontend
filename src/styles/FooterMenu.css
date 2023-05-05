@@ -18,7 +18,8 @@
 }
 .FooterMenu-link:hover :nth-child(1),
 .FooterMenu-link:hover :nth-child(2) {
-  color: var(--text-primary);
+  /* color: var(--text-primary); */
+  color: #2eb676;
 }
 .FooterMenu-icons {
   font-size: 24px;

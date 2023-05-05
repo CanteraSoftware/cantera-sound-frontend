@@ -30,7 +30,7 @@ export function Header() {
               placeholder="Buscar"
             />
             <div className="Header-search-icon-container">
-              <AiOutlineSearch className="Header-icons-search" />
+              <AiOutlineSearch className="Header-icons-search-lupa" />
             </div>
           </div>
           <button
