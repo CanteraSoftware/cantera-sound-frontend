@@ -3,6 +3,7 @@ import { Header } from "../components/Header";
 import { HomeSwiperSlider } from "../components/HomeSwiperSlider";
 import { Categories } from "../components/Categories";
 import { Add } from "../components/Add";
+import { Loading } from "../components/Loading";
 import "../styles/Home.css";
 
 export function Home() {
@@ -10,12 +11,14 @@ export function Home() {
 
   const [api, setApi] = useState([])
   const [seeModal, setSeeModal] = useState(false);
+  const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(url)
       .then(response => response.json())
       .then(data => {
         setApi(data.files)
+        setIsLoading(false)
       })
   }, [])
 
@@ -29,7 +32,7 @@ export function Home() {
       <div className="Home-song-container">
         <h2>Canciones</h2>
         <div className="Home-song-container-slider">
-          <HomeSwiperSlider api={api} />
+          {isloading ? <Loading /> : <HomeSwiperSlider api={api} />}
         </div>
       </div>
       <Categories />
