@@ -9,6 +9,7 @@ export function Home() {
   const url = 'http://18.117.98.49:5000/api/v1/files'
 
   const [api, setApi] = useState([])
+  const [seeModal, setSeeModal] = useState(false);
 
   useEffect(() => {
     fetch(url)
@@ -17,8 +18,6 @@ export function Home() {
         setApi(data)
       })
   }, [])
-  
-  const [seeModal, setSeeModal] = useState(false);
   
   const handleModal = () => {
     setSeeModal(!seeModal);
