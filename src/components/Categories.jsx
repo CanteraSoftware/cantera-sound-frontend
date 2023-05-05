@@ -12,19 +12,19 @@ export function Categories() {
     <div className="Categories">
       <h2>Categorías</h2>
       <div className="Categories-container">
-        <Link className="Categories-content" to="/category">
+        <Link className="Categories-content" to="/categorysong">
           <div className="circle">
             <BiMusic className="Categories-icons" />
           </div>
           <h3>Música</h3>
         </Link>
-        <Link className="Categories-content" to="/category">
+        <Link className="Categories-content" to="/categorypodcast">
           <div className="circle">
             <CgMediaPodcast className="Categories-icons" />
           </div>
           <h3>Podcast</h3>
         </Link>
-        <Link className="Categories-content" to="/category">
+        <Link className="Categories-content" to="/categoryaudiobooks">
           <div className="circle">
             <MdMenuBook className="Categories-icons" />
           </div>
