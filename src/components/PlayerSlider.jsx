@@ -3,18 +3,15 @@ import { PlayerButtons } from "./PlayerButtons";
 import '../styles/PlayerSlider.css'
 
 export function PlayerSlider({api}) {
-  const [songDescription, setSongDescription] = useState({name:'' , artist: ''
-  })
+  const [songDescription, setSongDescription] = useState({name:'' , artist: ''})
+  const [isPlaying, setIsPlaying] = useState(true)
   const [index, setIndex] = useState(0)
-  
-  const updateIndex = (newVal)=>{
-    setIndex(newVal)
-  }
+  const audioRef = useRef(null)
+
   useEffect(() => {
     setSongDescription({name: api[index].nameFile, artist: api[index].nameAuthor})
   }, [index])
-  const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(true)
+
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -25,7 +22,11 @@ export function PlayerSlider({api}) {
     }
   }, [isPlaying])
 
-  function handlePlayPause() {
+  const updateIndex = (newVal) => {
+    setIndex(newVal)
+  }
+
+  const handlePlayPause = () => {
     setIsPlaying(!isPlaying)
   }
 
