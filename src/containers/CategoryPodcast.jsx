@@ -3,10 +3,12 @@ import { Header } from '../components/Header';
 import { DataFile } from '../components/DataFile';
 import { FooterMenu } from '../components/FooterMenu';
 import "../styles/Category.css";
+import { Loading } from '../components/Loading';
 
 export function CategoryPodcast() {
   const url = 'http://18.117.98.49:5000/api/v1/categories/2'
-
+  
+  const [isLoading, setIsLoading] = useState(true)
   const [api, setApi] = useState([])
 
   useEffect(() => {
@@ -14,6 +16,7 @@ export function CategoryPodcast() {
       .then(response => response.json())
       .then(data => {
         setApi(data.files)
+        setIsLoading(false)
       })
   }, [])
 
@@ -23,14 +26,16 @@ export function CategoryPodcast() {
       <div className="Category">
         <div className="Category-container">
           <h2>Podcasts</h2>
-          {api.map((podcast) => {
-            return <DataFile
-              key={podcast.id}
-              img={podcast.imageUrl}
-              title={podcast.nameFile}
-              artist={podcast.nameAuthor}
-            />
-          })}
+          {isLoading ? <Loading /> :
+            api.map((podcast) => {
+              return <DataFile
+                key={podcast.id}
+                img={podcast.imageUrl}
+                title={podcast.nameFile}
+                artist={podcast.nameAuthor}
+              />
+            })
+          }
         </div>
       </div>
       <FooterMenu />

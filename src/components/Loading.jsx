@@ -3,13 +3,15 @@ import '../styles/Loading.css'
 
 export function Loading() {
   return (
-    <div class="Loading-wrapper">
-      <span class="Loading-circle"></span>
-      <span class="Loading-circle"></span>
-      <span class="Loading-circle"></span>
-      <span class="Loading-shadow"></span>
-      <span class="Loading-shadow"></span>
-      <span class="Loading-shadow"></span>
+    <div className='Loading'>
+      <div className="Loading-wrapper">
+        <span className="Loading-circle"></span>
+        <span className="Loading-circle"></span>
+        <span className="Loading-circle"></span>
+        <span className="Loading-shadow"></span>
+        <span className="Loading-shadow"></span>
+        <span className="Loading-shadow"></span>
+      </div>
     </div>
   );
 }
