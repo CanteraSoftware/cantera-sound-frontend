@@ -36,7 +36,6 @@ export function PlayerButtons({isPlaying, handlePlayPause, updateIndex, index, a
             updateIndex(index = 0)
           }else{
             updateIndex(index + 1)
-            
           }
           }}>
           <BsFillFastForwardFill className="small"/>
