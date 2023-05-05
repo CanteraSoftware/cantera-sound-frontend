@@ -8,7 +8,6 @@
   justify-content: space-between;
   align-items: center;
 }
-
 .Categories-content {
   width: 90px;
   margin: 6px 0 20px 0;
@@ -28,15 +27,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.5s ease-in-out all;
+  transition: 0.3s ease-in-out all;
 }
 .circle:hover {
   transform: scale(1.2);
-  /*transition: transform 0.3s;*/
 }
 .Categories-icons {
   font-size: 35px;
   color: var(--icons-buttons);
+  transition: 0.3s ease-in-out all;
 }
 .Categories-icons:hover {
   color: var(--text-secundary);
