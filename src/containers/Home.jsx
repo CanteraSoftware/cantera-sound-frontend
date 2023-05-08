@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../components/Header";
 import { HomeSwiperSlider } from "../components/HomeSwiperSlider";
 import { Categories } from "../components/Categories";
@@ -7,20 +7,20 @@ import { LoadingDataFile } from "../components/LoadingDataFile";
 import "../styles/Home.css";
 
 export function Home() {
-  const url = 'http://18.117.98.49:5000/api/v1/categories/1'
+  const url = "http://18.117.98.49:5000/api/v1/categories/1";
 
-  const [api, setApi] = useState([])
+  const [api, setApi] = useState([]);
   const [seeModal, setSeeModal] = useState(false);
   const [isloading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setApi(data.files)
-        setIsLoading(false)
-      })
-  }, [])
+      .then((response) => response.json())
+      .then((data) => {
+        setApi(data.files);
+        setIsLoading(false);
+      });
+  }, []);
 
   const handleModal = () => {
     setSeeModal(!seeModal);
@@ -35,7 +35,6 @@ export function Home() {
           {isloading ? <LoadingDataFile /> : <HomeSwiperSlider api={api} />}
         </div>
       </div>
-      {/* <LoadingHome /> */}
       <Categories />
       <div className="Home-add-button-container">
         <button className="Home-add-button" onClick={handleModal}>
