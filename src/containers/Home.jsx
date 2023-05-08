@@ -4,6 +4,7 @@ import { HomeSwiperSlider } from "../components/HomeSwiperSlider";
 import { Categories } from "../components/Categories";
 import { Add } from "../components/Add";
 import { LoadingDataFile } from "../components/LoadingDataFile";
+import { FooterMenu } from "../components/FooterMenu";
 import "../styles/Home.css";
 
 export function Home() {
@@ -42,6 +43,7 @@ export function Home() {
         </button>
       </div>
       <Add see={seeModal} notSee={setSeeModal} />
+      <FooterMenu />
     </div>
   );
 }
