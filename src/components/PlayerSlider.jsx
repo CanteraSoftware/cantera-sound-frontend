@@ -6,8 +6,12 @@ export function PlayerSlider({api}) {
   const [songDescription, setSongDescription] = useState({name:'' , artist: ''})
   const [isPlaying, setIsPlaying] = useState(true)
   const [index, setIndex] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
   const audioRef = useRef(null)
-
+  const progressBarRef = useRef(null)
+  const [totalTime, setTotalTime] = useState('0:00')
+  const [currentTimeSong, setCurrentTimeSong] = useState('0:00')
   useEffect(() => {
     setSongDescription({name: api[index].nameFile, artist: api[index].nameAuthor})
   }, [index])
@@ -22,6 +26,32 @@ export function PlayerSlider({api}) {
     }
   }, [isPlaying])
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (audioRef.current && progressBarRef.current) {
+        const percent = (audioRef.current.currentTime / duration) * 100;
+        progressBarRef.current.style.width = `${percent}%`
+      }
+      let min = Math.floor(audioRef.current.currentTime / 60);
+      let seconds = audioRef.current.currentTime % 60;
+      if (seconds <10){
+        setCurrentTimeSong(`${min}:0${seconds.toFixed()}`)
+      }else{
+        setCurrentTimeSong(`${min}:${seconds.toFixed()}`)
+      }
+
+    }, 1000)
+    let minutos = Math.floor(audioRef.current.duration / 60);
+    let segundosRestantes = audioRef.current.duration % 60;
+
+    if (segundosRestantes <10){
+      setTotalTime(`${minutos}:0${segundosRestantes.toFixed()}`)
+    }else{
+      setTotalTime(`${minutos}:${segundosRestantes.toFixed()}`)
+    }
+    return () => clearInterval(intervalId)
+  }, [duration])
+
   const updateIndex = (newVal) => {
     setIndex(newVal)
   }
@@ -30,13 +60,23 @@ export function PlayerSlider({api}) {
     setIsPlaying(!isPlaying)
   }
 
+  const handleTimeUpdate = () => {
+    setCurrentTime(audioRef.current.currentTime)
+  }
+
+  const handleLoadedMetadata = () => {
+    setDuration(audioRef.current.duration)
+  }
+
   return (
     <>
       <audio
-        ref={audioRef}
+        ref={audioRef}  
         src={api[index].fileUrl}
         autoPlay
         loop
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
       >
       </audio>
       <div className='PlayerSlider'>
@@ -58,11 +98,11 @@ export function PlayerSlider({api}) {
           <p>{songDescription.artist}</p>
         </div>
         <div className="Progressline">
-          <div></div>
+          <div ref={progressBarRef}></div>
         </div>
         <div className="PlayerSlider-TimeContainer">
-          <span>1:20</span>
-          <span>2:40</span>
+          <span>{currentTimeSong}</span>
+          <span>{totalTime}</span>
         </div>
       </section>
       <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} api={api} index={index} updateIndex={updateIndex}/>
