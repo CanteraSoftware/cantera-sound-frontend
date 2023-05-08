@@ -41,7 +41,7 @@ h1 {
   color: var(--text-primary);
 }
 h2 {
-  padding: 20px 0 10px 0;
+  padding: 20px 0 15px 0;
   font-size: 1.9rem;
   font-weight: 400;
   color: var(--text-primary);
