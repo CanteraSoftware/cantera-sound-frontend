@@ -3,18 +3,19 @@ import { PlayerButtons } from "./PlayerButtons";
 import '../styles/PlayerSlider.css'
 
 export function PlayerSlider({api}) {
-  const [songDescription, setSongDescription] = useState({name:'' , artist: ''
-  })
+  const [songDescription, setSongDescription] = useState({name:'' , artist: ''})
+  const [isPlaying, setIsPlaying] = useState(true)
   const [index, setIndex] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const audioRef = useRef(null)
+  const progressBarRef = useRef(null)
+
   
-  const updateIndex = (newVal)=>{
-    setIndex(newVal)
-  }
   useEffect(() => {
     setSongDescription({name: api[index].nameFile, artist: api[index].nameAuthor})
   }, [index])
-  const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(true)
+
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -25,17 +26,42 @@ export function PlayerSlider({api}) {
     }
   }, [isPlaying])
 
-  function handlePlayPause() {
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (audioRef.current && progressBarRef.current) {
+        const percent = (audioRef.current.currentTime / duration) * 100;
+        progressBarRef.current.style.width = `${percent}%`
+      }
+    }, 1000)
+
+    return () => clearInterval(intervalId)
+  }, [duration])
+
+  const updateIndex = (newVal) => {
+    setIndex(newVal)
+  }
+
+  const handlePlayPause = () => {
     setIsPlaying(!isPlaying)
+  }
+
+  const handleTimeUpdate = () => {
+    setCurrentTime(audioRef.current.currentTime)
+  }
+
+  const handleLoadedMetadata = () => {
+    setDuration(audioRef.current.duration)
   }
 
   return (
     <>
       <audio
-        ref={audioRef}
+        ref={audioRef}  
         src={api[index].fileUrl}
-        autoPlay
+        // autoPlay
         loop
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
       >
       </audio>
       <div className='PlayerSlider'>
@@ -57,11 +83,11 @@ export function PlayerSlider({api}) {
           <p>{songDescription.artist}</p>
         </div>
         <div className="Progressline">
-          <div></div>
+          <div ref={progressBarRef}></div>
         </div>
         <div className="PlayerSlider-TimeContainer">
-          <span>1:20</span>
-          <span>2:40</span>
+          <span>1.2</span>
+          <span>{duration}</span>
         </div>
       </section>
       <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} api={api} index={index} updateIndex={updateIndex}/>
