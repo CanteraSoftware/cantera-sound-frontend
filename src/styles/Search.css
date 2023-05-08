@@ -1,0 +1,39 @@
+.Search {
+  width: 100%;
+  margin-top: 20px;
+}
+.Search-container {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+}
+.Search-input {
+  width: 90%;
+  height: 40px;
+  padding: 0 10px 0 10px;
+  background: transparent;
+  font-size: 1.6rem;
+  font-weight: 300;
+  font-family: "Ubuntu", sans-serif;
+  color: var(--text-primary);
+  border: 1px solid var(--icons-buttons);
+  border-radius: 10px 0 0 10px;
+  outline: none;
+}
+.Search-input:focus {
+  border: 2px solid var(--icons-buttons);
+}
+.Search-icon-container {
+  width: 60px;
+  height: 40px;
+  background: var(--icons-buttons);
+  display: grid;
+  place-items: center;
+  border-radius: 0 10px 10px 0;
+}
+.Search-icons {
+  font-size: 24px;
+  color: var(--circle-icons);
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
