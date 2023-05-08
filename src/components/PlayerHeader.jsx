@@ -13,7 +13,7 @@ export function PlayerHeader() {
         <BsArrowLeftShort className="PlayerHeader-Icon-Back" />
       </Link>
       <h2>Reproduciendo</h2>
-      <Link to="/category">
+      <Link to="/categorysong">
         <BsMusicNoteList className="PlayerHeader-Icon" />
       </Link>
     </div>

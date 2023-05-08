@@ -3,7 +3,7 @@ import { Header } from "../components/Header";
 import { HomeSwiperSlider } from "../components/HomeSwiperSlider";
 import { Categories } from "../components/Categories";
 import { Add } from "../components/Add";
-import { Loading } from "../components/Loading";
+import { LoadingDataFile } from "../components/LoadingDataFile";
 import "../styles/Home.css";
 
 export function Home() {
@@ -32,9 +32,10 @@ export function Home() {
       <div className="Home-song-container">
         <h2>Canciones</h2>
         <div className="Home-song-container-slider">
-          {isloading ? <Loading /> : <HomeSwiperSlider api={api} />}
+          {isloading ? <LoadingDataFile /> : <HomeSwiperSlider api={api} />}
         </div>
       </div>
+      {/* <LoadingHome /> */}
       <Categories />
       <div className="Home-add-button-container">
         <button className="Home-add-button" onClick={handleModal}>
