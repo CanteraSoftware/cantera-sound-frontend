@@ -6,12 +6,10 @@ export function PlayerSlider({api}) {
   const [songDescription, setSongDescription] = useState({name:'' , artist: ''})
   const [isPlaying, setIsPlaying] = useState(true)
   const [index, setIndex] = useState(0)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [duration, setDuration] = useState(0)
-  const audioRef = useRef(null)
-  const progressBarRef = useRef(null)
-
   
+  const updateIndex = (newVal)=>{
+    setIndex(newVal)
+  }
   useEffect(() => {
     setSongDescription({name: api[index].nameFile, artist: api[index].nameAuthor})
   }, [index])
@@ -26,22 +24,7 @@ export function PlayerSlider({api}) {
     }
   }, [isPlaying])
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (audioRef.current && progressBarRef.current) {
-        const percent = (audioRef.current.currentTime / duration) * 100;
-        progressBarRef.current.style.width = `${percent}%`
-      }
-    }, 1000)
-
-    return () => clearInterval(intervalId)
-  }, [duration])
-
-  const updateIndex = (newVal) => {
-    setIndex(newVal)
-  }
-
-  const handlePlayPause = () => {
+  function handlePlayPause() {
     setIsPlaying(!isPlaying)
   }
 
@@ -86,8 +69,8 @@ export function PlayerSlider({api}) {
           <div ref={progressBarRef}></div>
         </div>
         <div className="PlayerSlider-TimeContainer">
-          <span>1.2</span>
-          <span>{duration}</span>
+          <span>1:20</span>
+          <span>2:40</span>
         </div>
       </section>
       <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} api={api} index={index} updateIndex={updateIndex}/>
