@@ -32,6 +32,7 @@ export function CategorySong() {
             api.map((song) => {
               return (
                 <DataFile
+                  id={song.id}
                   key={song.id}
                   img={song.imageUrl}
                   title={song.nameFile}

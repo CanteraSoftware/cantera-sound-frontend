@@ -2,10 +2,10 @@ import {React, useState, useEffect, useRef} from "react";
 import { PlayerButtons } from "./PlayerButtons";
 import '../styles/PlayerSlider.css'
 
-export function PlayerSlider({api}) {
+export function PlayerSlider({api, indexp}) {
   const [songDescription, setSongDescription] = useState({name:'' , artist: ''})
   const [isPlaying, setIsPlaying] = useState(true)
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(indexp)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const audioRef = useRef(null)

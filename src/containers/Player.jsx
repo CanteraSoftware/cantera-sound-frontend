@@ -6,10 +6,10 @@ import { LoadingPlayer } from '../components/LoadingPlayer';
 
 export function Player() {
   const url = "http://18.117.98.49:5000/api/v1/files";
-
   const [isLoading, setIsloading] = useState(true)
   const [api, setApi] = useState([])
-
+  const [_, idUrl] = window.location.href.split('=');
+  const index = api.findIndex((item)=> item.id === Number(idUrl))
   useEffect(() => {
     fetch(url)
       .then(response => response.json())
@@ -23,7 +23,7 @@ export function Player() {
   return (
     <div className="Player">
       <PlayerHeader />
-      {isLoading ? <LoadingPlayer /> : <PlayerSlider api={api}/>}
+      {isLoading ? <LoadingPlayer /> : <PlayerSlider api={api} indexp={index}/>}
       <FooterMenu/>
     </div>
   )
