@@ -6,7 +6,7 @@
 }
 .Home-song-container {
   width: 100%;
-  margin-top: 80px;
+  margin-top: 65px;
   padding: 0 20px 0 20px;
 }
 .Home-add-button-container {
@@ -15,7 +15,7 @@
 }
 .Home-add-button {
   width: 100%;
-  margin: 20px 0 40px 0;
+  margin: 20px 0 80px 0;
   padding: 15px 0;
   background-color: var(--icons-buttons);
   font-size: 1.8rem;
