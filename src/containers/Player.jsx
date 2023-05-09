@@ -5,7 +5,7 @@ import { FooterMenu } from "../components/FooterMenu";
 import { LoadingPlayer } from '../components/LoadingPlayer';
 
 export function Player() {
-  const url = "http://18.117.98.49:5000/api/v1/categories/1";
+  const url = "http://18.117.98.49:5000/api/v1/files";
 
   const [isLoading, setIsloading] = useState(true)
   const [api, setApi] = useState([])
@@ -14,7 +14,8 @@ export function Player() {
     fetch(url)
       .then(response => response.json())
       .then(data=>{
-        setApi(data.files)
+        console.log({data});
+        setApi(data)
         setIsloading(false);
       })
   }, [])
