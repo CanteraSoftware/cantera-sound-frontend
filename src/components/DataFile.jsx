@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import '../styles/DataFile.css'
 
-export function DataFile({title, artist, img}) {
+export function DataFile({title, artist, img, id}) {
+
   return (
     <div className='DataFile'>
       <ul>
         <li>
-          <Link className='DataFile-content' to='/player'>
+          <Link id={id} className='DataFile-content' to={`/player?id=${id}`}>
             <img src={img} alt="" />
             <div className="DataFile-description">
               <h3>{ title }</h3>
