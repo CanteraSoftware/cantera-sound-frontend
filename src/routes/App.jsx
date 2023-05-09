@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "../containers/Home";
+import { Search } from "../containers/Search";
 import { Player } from "../containers/Player";
 import { CategorySong } from "../containers/CategorySong";
 import { CategoryPodcast } from "../containers/CategoryPodcast";
@@ -12,6 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/player" element={<Player />} />
         <Route path="/categorysong" element={<CategorySong />} />
         <Route path="/categorypodcast" element={<CategoryPodcast />} />
