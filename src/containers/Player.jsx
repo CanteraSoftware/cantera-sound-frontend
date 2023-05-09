@@ -14,7 +14,6 @@ export function Player() {
     fetch(url)
       .then(response => response.json())
       .then(data=>{
-        console.log({data});
         setApi(data.files)
         setIsloading(false);
       })

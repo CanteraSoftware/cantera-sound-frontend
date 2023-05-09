@@ -39,7 +39,6 @@ export function PlayerSlider({api}) {
       }else{
         setCurrentTimeSong(`${min}:${seconds.toFixed()}`)
       }
-
     }, 1000)
     let minutos = Math.floor(audioRef.current.duration / 60);
     let segundosRestantes = audioRef.current.duration % 60;
