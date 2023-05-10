@@ -6,8 +6,8 @@ export function Add({ see, notSee }) {
   const [nameAuthor, setNameAuthor] = useState('');
   const [category, setCategory] = useState(null);
   const [genres, setGenres] = useState(null);
-  const [file, setFile] = useState(null);
-  const [fileUrl, setFileUrl] = useState('');
+  /* const [file, setFile] = useState(null);
+  const [fileUrl, setFileUrl] = useState(''); */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,8 +16,8 @@ export function Add({ see, notSee }) {
     const formData = new FormData();
     formData.append('nameFile', nameFile);
     formData.append('nameAuthor', nameAuthor);
-    formData.append('file', file);
-    formData.append('fileUrl', fileUrl);
+    /* formData.append('file', file);
+    formData.append('fileUrl', fileUrl); */
 
     const url = 'http://18.117.98.49:5000/api/v1/files/upload';
 
@@ -28,13 +28,13 @@ export function Add({ see, notSee }) {
       .then((response) => response.text())
       .then((data) => {
         console.log(data);
-        setFileUrl(data.Location);
+        /* setFileUrl(data.Location); */
       });
   };
 
-  const handleFileInputChange = (e) => {
+  /* const handleFileInputChange = (e) => {
     setFile(e.target.files[0]);
-  };
+  }; */
 
   const handleClick = () => {
     notSee(false);
@@ -43,15 +43,26 @@ export function Add({ see, notSee }) {
   return (
     <>
       {see &&
-        <div className='App'>
-          <div className="App-container">
+        <div className='Add'>
+          <div className="Add-container">
             <h2>Agrega Tu Archivo</h2>
-            <form onSubmit={handleSubmit} className='App-content'>
+            <form onSubmit={handleSubmit} className='Add-form'>
 
-              <div className='App-content-input'>
+              <div className='Add-form-input'>
+                <label className='file'>Archivo</label>
+                <input
+                  className='Add-input'
+                  type="text"
+                  id='file'
+                  /* value={nameFile} */
+                  /* onChange={(e) => setNameFile(e.target.value)} */
+                />
+              </div>
+
+              <div className='Add-form-input'>
                 <label className='name'>Nombre</label>
                 <input
-                  className='App-input'
+                  className='Add-input'
                   type="text"
                   id='name'
                   value={nameFile}
@@ -59,10 +70,10 @@ export function Add({ see, notSee }) {
                 />
               </div>
 
-              <div className='App-content-input'>
+              <div className='Add-form-input'>
                 <label className='artist'>Artista / Autor</label>
                 <input
-                  className='App-input'
+                  className='Add-input'
                   type="text"
                   id='artist'
                   value={nameAuthor}
@@ -70,9 +81,9 @@ export function Add({ see, notSee }) {
                 />
               </div>
 
-              <div className='App-content-input'>
+              <div className='Add-form-input'>
                 <label className='category'>Categorías</label>
-                <select className='App-input' >
+                <select className='Add-input' >
                   <option value="" disabled selected hidden></option>
                   <option>Música</option>
                   <option>Podcast</option>
@@ -80,9 +91,9 @@ export function Add({ see, notSee }) {
                 </select>
               </div>
 
-              <div className='App-content-input'>
+              <div className='Add-form-input'>
                 <label className='genres'>Géneros</label>
-                <select className='App-input' >
+                <select className='Add-input' >
                   <option value="" disabled selected hidden></option>
                   <option>Comedia</option>
                   <option>Reggaeton</option>
@@ -90,21 +101,19 @@ export function Add({ see, notSee }) {
                 </select>
               </div>
 
-              <div className='App-content-input'>
-                <label className='file'>Archivo</label>
-                <input
-                  className='App-input-audio'
-                  type="file"
-                  name="uploads"
-                  accept=".mp3"
-                  multiple
-                  onChange={handleFileInputChange}
-                />
-              </div>
-
-              <div className="App-container-btn">
-                <button className='App-btn-cancel' onClick={handleClick}>Cancelar</button>
-                <button type='submit' className='App-btn-save'>Guardar</button>
+              <div className="Add-container-btn">
+                <button
+                  className='Add-btn-cancel'
+                  onClick={handleClick}
+                >
+                  Cancelar
+                </button>
+                <button
+                  type='submit'
+                  className='Add-btn-save'
+                >
+                  Guardar
+                </button>
               </div>
 
             </form>

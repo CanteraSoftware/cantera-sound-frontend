@@ -1,4 +1,4 @@
-.Add {
+.AddFile {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -7,76 +7,66 @@
   background: rgba(0, 0, 0, 0.6);
   z-index: 3;
 }
-.Add-container {
+.AddFile-container {
   width: 100%;
-  height: 460px;
+  height: 280px;
   padding: 8px 20px;
   position: absolute;
-  top: calc(100vh - 460px);
+  top: calc(100vh - 280px);
   background: var(--background);
   border-radius: 15px 15px 0 0;
   text-align: center;
 }
-.Add-container h2 {
+.AddFile-container h2 {
   margin-bottom: 10px;
 }
-.Add-form {
+.AddFile-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
-.Add-form-input {
+.AddFile-form-content {
   width: 100%;
 }
-.Add-form-input .file,
-.Add-form-input .name,
-.Add-form-input .artist,
-.Add-form-input .category,
-.Add-form-input .genres {
+.AddFile-form-content .AddFile-file {
   padding: 0 6px;
   position: absolute;
-  top: 66px;
+  top: 67px;
   left: 40px;
   background: var(--background);
   font-size: 1.4rem;
   color: var(--text-secundary);
 }
-.Add-form-input .name {
-  top: 129px;
-}
-.Add-form-input .artist {
-  top: 191px;
-}
-.Add-form-input .category {
-  top: 253px;
-}
-.Add-form-input .genres {
-  top: 316px;
-}
-.Add-input {
+.AddFile-input {
   width: 100%;
+  height: 110px;
   padding: 12px;
   background: transparent;
   font-size: 1.6rem;
   font-family: "Ubuntu", sans-serif;
   color: var(--text-primary);
+  display: flex;
   border: 1px solid var(--icons-buttons);
   border-radius: 10px;
   outline: none;
 }
-.Add-input:focus {
-  border: 2px solid var(--icons-buttons);
+.AddFile-input[type="file" i]::-webkit-file-upload-button {
+  margin: 7px 0;
+  background: transparent;
+  color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
 }
-.Add-input option {
-  background: var(--background);
+.AddFile-input[type="file" i] {
   color: var(--text-primary);
 }
-.Add-container-btn {
+.AddFile-container-btn {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.Add-container-btn button {
+.AddFile-container-btn button {
   width: 147px;
   padding: 10px 0;
   font-size: 1.6rem;
@@ -86,15 +76,15 @@
   border-radius: 10px;
   cursor: pointer;
 }
-.Add-btn-cancel {
+.AddFile-btn-cancel {
   background: transparent;
 }
-.Add-btn-cancel:hover {
+.AddFile-btn-cancel:hover {
   transform: translateY(-3px);
 }
-.Add-btn-save {
+.AddFile-btn-save {
   background: var(--icons-buttons);
 }
-.Add-btn-save:hover {
+.AddFile-btn-save:hover {
   transform: translateY(-3px);
 }
