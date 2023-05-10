@@ -10,6 +10,7 @@ export function Player() {
   const [api, setApi] = useState([])
   const [_, idUrl] = window.location.href.split('=');
   const index = api.findIndex((item)=> item.id === Number(idUrl))
+  
   useEffect(() => {
     fetch(url)
       .then(response => response.json())
@@ -19,7 +20,7 @@ export function Player() {
         setIsloading(false);
       })
   }, [])
-
+  
   return (
     <div className="Player">
       <PlayerHeader />
