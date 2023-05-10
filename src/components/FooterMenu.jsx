@@ -6,6 +6,7 @@ import '../styles/FooterMenu.css'
 
 //icons
 import { HiHome } from 'react-icons/hi'
+import { VscHome } from 'react-icons/vsc'
 import { AiOutlineSearch } from "react-icons/ai";
 import { BiCategory } from 'react-icons/bi'
 import { BiAddToQueue } from 'react-icons/bi'
@@ -26,7 +27,7 @@ export function FooterMenu() {
   return (
     <div className='FooterMenu'>
       <Link className='FooterMenu-link' to='/'>
-        <HiHome className='FooterMenu-icons' />
+        <VscHome className='FooterMenu-icons' />
         <h6>Inicio</h6>
       </Link>
       <Link className='FooterMenu-link' to='/search'>
