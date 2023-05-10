@@ -1,4 +1,4 @@
-.App {
+.AddFile {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -7,74 +7,48 @@
   background: rgba(0, 0, 0, 0.6);
   z-index: 3;
 }
-.App-container {
+.Add-container {
   width: 100%;
-  height: 520px;
+  height: 280px;
   padding: 8px 20px;
   position: absolute;
-  top: calc(100vh - 520px);
+  top: calc(100vh - 280px);
   background: var(--background);
   border-radius: 15px 15px 0 0;
   text-align: center;
 }
-.App-container h2 {
+.Add-container h2 {
   margin-bottom: 10px;
 }
-.App-form {
+.Add-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
-.App-form-input {
+.Add-form-content {
   width: 100%;
 }
-.App-form-input .name,
-.App-form-input .artist,
-.App-form-input .category,
-.App-form-input .genres,
-.App-form-input .file {
+.Add-form-content .file {
   padding: 0 6px;
   position: absolute;
-  top: 62px;
+  top: 67px;
   left: 40px;
   background: var(--background);
   font-size: 1.4rem;
   color: var(--text-secundary);
 }
-.App-form-input .artist {
-  top: 125px;
-}
-.App-form-input .category {
-  top: 187px;
-}
-.App-form-input .genres {
-  top: 250px;
-}
-.App-form-input .file {
-  top: 313px;
-}
-.App-input,
-.App-input-audio {
+input {
   width: 100%;
+  height: 110px;
   padding: 12px;
   background: transparent;
   font-size: 1.6rem;
   font-family: "Ubuntu", sans-serif;
   color: var(--text-primary);
+  display: flex;
   border: 1px solid var(--icons-buttons);
   border-radius: 10px;
   outline: none;
-}
-.App-input:focus {
-  border: 2px solid var(--icons-buttons);
-}
-.App-input option {
-  background: var(--background);
-  color: var(--text-primary);
-}
-.App-input-audio {
-  height: 110px;
-  display: flex;
 }
 input[type="file" i]::-webkit-file-upload-button {
   margin: 7px 0;
@@ -87,12 +61,12 @@ input[type="file" i]::-webkit-file-upload-button {
 input[type="file" i] {
   color: var(--text-primary);
 }
-.App-container-btn {
+.Add-container-btn {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.App-container-btn button {
+.Add-container-btn button {
   width: 147px;
   padding: 10px 0;
   font-size: 1.6rem;
@@ -102,15 +76,15 @@ input[type="file" i] {
   border-radius: 10px;
   cursor: pointer;
 }
-.App-btn-cancel {
+.Add-btn-cancel {
   background: transparent;
 }
-.App-btn-cancel:hover {
+.Add-btn-cancel:hover {
   transform: translateY(-3px);
 }
-.App-btn-save {
+.Add-btn-save {
   background: var(--icons-buttons);
 }
-.App-btn-save:hover {
+.Add-btn-save:hover {
   transform: translateY(-3px);
 }

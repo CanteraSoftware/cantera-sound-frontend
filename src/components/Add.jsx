@@ -46,7 +46,7 @@ export function Add({ see, notSee }) {
         <div className='App'>
           <div className="App-container">
             <h2>Agrega Tu Archivo</h2>
-            <form onSubmit={handleSubmit} className='App-content'>
+            <form onSubmit={handleSubmit} className='App-form'>
 
               <div className='App-content-input'>
                 <label className='name'>Nombre</label>
@@ -96,7 +96,7 @@ export function Add({ see, notSee }) {
                   className='App-input-audio'
                   type="file"
                   name="uploads"
-                  accept=".mp3"
+                  accept=".mp3, .mp4"
                   multiple
                   onChange={handleFileInputChange}
                 />
