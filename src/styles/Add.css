@@ -1,4 +1,4 @@
-.App {
+.Add {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -7,54 +7,53 @@
   background: rgba(0, 0, 0, 0.6);
   z-index: 3;
 }
-.App-container {
+.Add-container {
   width: 100%;
-  height: 520px;
+  height: 460px;
   padding: 8px 20px;
   position: absolute;
-  top: calc(100vh - 520px);
+  top: calc(100vh - 460px);
   background: var(--background);
   border-radius: 15px 15px 0 0;
   text-align: center;
 }
-.App-container h2 {
+.Add-container h2 {
   margin-bottom: 10px;
 }
-.App-form {
+.Add-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
-.App-form-input {
+.Add-form-input {
   width: 100%;
 }
-.App-form-input .name,
-.App-form-input .artist,
-.App-form-input .category,
-.App-form-input .genres,
-.App-form-input .file {
+.Add-form-input .file,
+.Add-form-input .name,
+.Add-form-input .artist,
+.Add-form-input .category,
+.Add-form-input .genres {
   padding: 0 6px;
   position: absolute;
-  top: 62px;
+  top: 66px;
   left: 40px;
   background: var(--background);
   font-size: 1.4rem;
   color: var(--text-secundary);
 }
-.App-form-input .artist {
-  top: 125px;
+.Add-form-input .name {
+  top: 129px;
 }
-.App-form-input .category {
-  top: 187px;
+.Add-form-input .artist {
+  top: 191px;
 }
-.App-form-input .genres {
-  top: 250px;
+.Add-form-input .category {
+  top: 253px;
 }
-.App-form-input .file {
-  top: 313px;
+.Add-form-input .genres {
+  top: 316px;
 }
-.App-input,
-.App-input-audio {
+.Add-input {
   width: 100%;
   padding: 12px;
   background: transparent;
@@ -65,34 +64,19 @@
   border-radius: 10px;
   outline: none;
 }
-.App-input:focus {
+.Add-input:focus {
   border: 2px solid var(--icons-buttons);
 }
-.App-input option {
+.Add-input option {
   background: var(--background);
   color: var(--text-primary);
 }
-.App-input-audio {
-  height: 110px;
-  display: flex;
-}
-input[type="file" i]::-webkit-file-upload-button {
-  margin: 7px 0;
-  background: transparent;
-  color: transparent;
-  border: none;
-  display: flex;
-  flex-direction: column;
-}
-input[type="file" i] {
-  color: var(--text-primary);
-}
-.App-container-btn {
+.Add-container-btn {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.App-container-btn button {
+.Add-container-btn button {
   width: 147px;
   padding: 10px 0;
   font-size: 1.6rem;
@@ -102,15 +86,15 @@ input[type="file" i] {
   border-radius: 10px;
   cursor: pointer;
 }
-.App-btn-cancel {
+.Add-btn-cancel {
   background: transparent;
 }
-.App-btn-cancel:hover {
+.Add-btn-cancel:hover {
   transform: translateY(-3px);
 }
-.App-btn-save {
+.Add-btn-save {
   background: var(--icons-buttons);
 }
-.App-btn-save:hover {
+.Add-btn-save:hover {
   transform: translateY(-3px);
 }
