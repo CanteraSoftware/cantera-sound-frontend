@@ -36,12 +36,13 @@ export function AddFile({ see, notSee }) {
     <>
       {see &&
         <div className='AddFile'>
-          <div className="Add-container">
+          <div className="AddFile-container">
             <h2>Agrega Tu Archivo</h2>
-            <form onSubmit={handleSubmit} className='Add-form'>
-              <div className='Add-form-content'>
-                <label className='file'>Archivo</label>
+            <form onSubmit={handleSubmit} className='AddFile-form'>
+              <div className='AddFile-form-content'>
+                <label className='AddFile-file'>Archivo</label>
                 <input
+                  className='AddFile-input'
                   type="file"
                   name="uploads"
                   accept=".mp3, .mp4"
@@ -49,16 +50,16 @@ export function AddFile({ see, notSee }) {
                   onChange={handleFileInputChange}
                 />
               </div>
-              <div className="Add-container-btn">
+              <div className="AddFile-container-btn">
                 <button
-                  className='Add-btn-cancel'
+                  className='AddFile-btn-cancel'
                   onClick={handleClick}
                 >
                   Cancelar
                 </button>
                 <button
                   type='submit'
-                  className='Add-btn-save'
+                  className='AddFile-btn-save'
                 >
                   Guardar
                 </button>
