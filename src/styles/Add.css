@@ -20,19 +20,19 @@
 .App-container h2 {
   margin-bottom: 10px;
 }
-.App-content {
+.App-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
-.App-content-input {
+.App-form-input {
   width: 100%;
 }
-.App-content-input .name,
-.App-content-input .artist,
-.App-content-input .category,
-.App-content-input .genres,
-.App-content-input .file {
+.App-form-input .name,
+.App-form-input .artist,
+.App-form-input .category,
+.App-form-input .genres,
+.App-form-input .file {
   padding: 0 6px;
   position: absolute;
   top: 62px;
@@ -41,16 +41,16 @@
   font-size: 1.4rem;
   color: var(--text-secundary);
 }
-.App-content-input .artist {
+.App-form-input .artist {
   top: 125px;
 }
-.App-content-input .category {
+.App-form-input .category {
   top: 187px;
 }
-.App-content-input .genres {
+.App-form-input .genres {
   top: 250px;
 }
-.App-content-input .file {
+.App-form-input .file {
   top: 313px;
 }
 .App-input,
