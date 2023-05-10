@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
-import { Add } from "./Add";
 import { Categories } from "./Categories";
+import { AddFile } from "./AddFile";
 import '../styles/FooterMenu.css'
 
 //icons
@@ -51,7 +51,7 @@ export function FooterMenu() {
         <BiAddToQueue className='FooterMenu-icons' />
         <h6>Agregar</h6>
       </div>
-      <Add see={seeModal} notSee={setSeeModal} />
+      <AddFile see={seeModal} notSee={setSeeModal} />
     </div>
   );
 }
