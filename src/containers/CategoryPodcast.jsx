@@ -6,7 +6,8 @@ import { LoadingDataFile } from "../components/LoadingDataFile";
 import "../styles/Category.css";
 
 export function CategoryPodcast() {
-  const url = "http://18.117.98.49:5000/api/v1/categories/2";
+  const categoryId = 2;
+  const url = `http://18.117.98.49:5000/api/v1/categories/${categoryId}`;
 
   const [isLoading, setIsLoading] = useState(true);
   const [api, setApi] = useState([]);
@@ -37,6 +38,7 @@ export function CategoryPodcast() {
                   img={podcast.imageUrl}
                   title={podcast.nameFile}
                   artist={podcast.nameAuthor}
+                  catId={categoryId}
                 />
               );
             })
