@@ -25,12 +25,12 @@ export function FooterMenu() {
 
   return (
     <div className='FooterMenu'>
-      <NavLink className='FooterMenu-link' to='/' activeClassName="active">
-        <VscHome /* className='FooterMenu-icons' */ />
+      <NavLink className='FooterMenu-link' to='/' activeclassname="active">
+        <VscHome />
         <h6>Inicio</h6>
       </NavLink>
-      <NavLink className='FooterMenu-link' to='/search' activeClassName="active">
-        <AiOutlineSearch /* className='FooterMenu-icons' */ />
+      <NavLink className='FooterMenu-link' to='/search' activeclassname="active">
+        <AiOutlineSearch />
         <h6>Buscar</h6>
       </NavLink>
       <div className='FooterMenu-link' onClick={handleCategories}>
