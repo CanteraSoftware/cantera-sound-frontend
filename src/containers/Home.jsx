@@ -6,7 +6,7 @@ import { LoadingDataFile } from "../components/LoadingDataFile";
 import { Add } from "../components/Add";
 import { FooterMenu } from "../components/FooterMenu";
 import "../styles/Home.css";
-
+// esto es un comentario
 export function Home() {
   const url = "http://18.117.98.49:5000/api/v1/categories/1";
 
