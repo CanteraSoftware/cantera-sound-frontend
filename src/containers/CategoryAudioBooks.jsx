@@ -32,6 +32,7 @@ export function CategoryAudioBooks() {
             api.map((book) => {
               return (
                 <DataFile
+                  id={book.id}
                   key={book.id}
                   img={book.imageUrl}
                   title={book.nameFile}

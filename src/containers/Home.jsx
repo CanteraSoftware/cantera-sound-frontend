@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Header } from "../components/Header";
 import { HomeSwiperSlider } from "../components/HomeSwiperSlider";
 import { Categories } from "../components/Categories";
-import { Add } from "../components/Add";
 import { LoadingDataFile } from "../components/LoadingDataFile";
+import { AddFile } from "../components/AddFile";
 import { FooterMenu } from "../components/FooterMenu";
 import "../styles/Home.css";
 
@@ -42,7 +42,7 @@ export function Home() {
           Agrega Tu Archivo
         </button>
       </div>
-      <Add see={seeModal} notSee={setSeeModal} />
+      <AddFile see={seeModal} notSee={setSeeModal} />
       <FooterMenu />
     </div>
   );

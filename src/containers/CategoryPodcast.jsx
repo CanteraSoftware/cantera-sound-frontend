@@ -32,6 +32,7 @@ export function CategoryPodcast() {
             api.map((podcast) => {
               return (
                 <DataFile
+                  id={podcast.id}
                   key={podcast.id}
                   img={podcast.imageUrl}
                   title={podcast.nameFile}
