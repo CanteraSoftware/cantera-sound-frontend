@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import { Categories } from "./Categories";
 import { Add } from "./Add";
 import '../styles/FooterMenu.css'
@@ -25,14 +25,14 @@ export function FooterMenu() {
 
   return (
     <div className='FooterMenu'>
-      <Link className='FooterMenu-link' to='/'>
-        <VscHome className='FooterMenu-icons' />
+      <NavLink className='FooterMenu-link' to='/' activeClassName="active">
+        <VscHome /* className='FooterMenu-icons' */ />
         <h6>Inicio</h6>
-      </Link>
-      <Link className='FooterMenu-link' to='/search'>
-        <AiOutlineSearch className='FooterMenu-icons' />
+      </NavLink>
+      <NavLink className='FooterMenu-link' to='/search' activeClassName="active">
+        <AiOutlineSearch /* className='FooterMenu-icons' */ />
         <h6>Buscar</h6>
-      </Link>
+      </NavLink>
       <div className='FooterMenu-link' onClick={handleCategories}>
         <BiCategory className='FooterMenu-icons' />
         <h6>Categorías</h6>
