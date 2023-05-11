@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
 import { Categories } from "./Categories";
-import { AddFile } from "./AddFile";
+import { Add } from "./Add";
 import '../styles/FooterMenu.css'
 
 //icons
-import { HiHome } from 'react-icons/hi'
 import { VscHome } from 'react-icons/vsc'
 import { AiOutlineSearch } from "react-icons/ai";
 import { BiCategory } from 'react-icons/bi'
@@ -51,7 +50,7 @@ export function FooterMenu() {
         <BiAddToQueue className='FooterMenu-icons' />
         <h6>Agregar</h6>
       </div>
-      <AddFile see={seeModal} notSee={setSeeModal} />
+      <Add see={seeModal} notSee={setSeeModal} />
     </div>
   );
 }
