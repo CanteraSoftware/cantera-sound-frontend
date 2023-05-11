@@ -6,7 +6,8 @@ import { LoadingDataFile } from "../components/LoadingDataFile";
 import "../styles/Category.css";
 
 export function CategoryAudioBooks() {
-  const url = "http://18.117.98.49:5000/api/v1/categories/3";
+  const categoryId = 3;
+  const url = `http://18.117.98.49:5000/api/v1/categories/${categoryId}`;
 
   const [isLoading, setIsLoading] = useState(true);
   const [api, setApi] = useState([]);
@@ -37,6 +38,7 @@ export function CategoryAudioBooks() {
                   img={book.imageUrl}
                   title={book.nameFile}
                   artist={book.nameAuthor}
+                  catId={categoryId}
                 />
               );
             })

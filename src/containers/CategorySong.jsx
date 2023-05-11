@@ -6,7 +6,8 @@ import { LoadingDataFile } from "../components/LoadingDataFile";
 import "../styles/Category.css";
 
 export function CategorySong() {
-  const url = "http://18.117.98.49:5000/api/v1/categories/1";
+  const categoryId = 1;
+  const url = `http://18.117.98.49:5000/api/v1/categories/${categoryId}`;
 
   const [isLoading, setIsLoading] = useState(true);
   const [api, setApi] = useState([]);
@@ -37,6 +38,7 @@ export function CategorySong() {
                   img={song.imageUrl}
                   title={song.nameFile}
                   artist={song.nameAuthor}
+                  catId={categoryId}
                 />
               );
             })
