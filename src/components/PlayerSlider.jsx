@@ -5,13 +5,6 @@ import '../styles/PlayerSlider.css'
 export function PlayerSlider({api, indexp}) {
   const [songDescription, setSongDescription] = useState({name:'' , artist: ''})
   const [isPlaying, setIsPlaying] = useState(true)
-<<<<<<< HEAD
-  const [index, setIndex] = useState(0)
-  
-  const updateIndex = (newVal)=>{
-    setIndex(newVal)
-  }
-=======
   const [index, setIndex] = useState(indexp)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
@@ -19,7 +12,6 @@ export function PlayerSlider({api, indexp}) {
   const progressBarRef = useRef(null)
   const [totalTime, setTotalTime] = useState('0:00')
   const [currentTimeSong, setCurrentTimeSong] = useState('0:00')
->>>>>>> 374edd5e18e1a88eac41b9081fe557fd6487f132
   useEffect(() => {
     setSongDescription({name: api[index].nameFile, artist: api[index].nameAuthor})
   }, [index])
@@ -34,9 +26,6 @@ export function PlayerSlider({api, indexp}) {
     }
   }, [isPlaying])
 
-<<<<<<< HEAD
-  function handlePlayPause() {
-=======
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (audioRef.current && progressBarRef.current) {
@@ -67,7 +56,6 @@ export function PlayerSlider({api, indexp}) {
   }
 
   const handlePlayPause = () => {
->>>>>>> 374edd5e18e1a88eac41b9081fe557fd6487f132
     setIsPlaying(!isPlaying)
   }
 
@@ -84,7 +72,7 @@ export function PlayerSlider({api, indexp}) {
       <audio
         ref={audioRef}  
         src={api[index].fileUrl}
-        // autoPlay
+        autoPlay
         loop
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
@@ -112,11 +100,12 @@ export function PlayerSlider({api, indexp}) {
           <div ref={progressBarRef}></div>
         </div>
         <div className="PlayerSlider-TimeContainer">
-          <span>1:20</span>
-          <span>2:40</span>
+          <span>{currentTimeSong}</span>
+          <span>{totalTime}</span>
         </div>
       </section>
       <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} api={api} index={index} updateIndex={updateIndex}/>
     </>
   );
 }
+//Player Slider
