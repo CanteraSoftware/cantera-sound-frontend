@@ -3,7 +3,7 @@ import { Header } from "../components/Header";
 import { HomeSwiperSlider } from "../components/HomeSwiperSlider";
 import { Categories } from "../components/Categories";
 import { LoadingDataFile } from "../components/LoadingDataFile";
-import { AddFile } from "../components/AddFile";
+import { Add } from "../components/Add";
 import { FooterMenu } from "../components/FooterMenu";
 import "../styles/Home.css";
 
@@ -42,7 +42,7 @@ export function Home() {
           Agrega Tu Archivo
         </button>
       </div>
-      <AddFile see={seeModal} notSee={setSeeModal} />
+      <Add see={seeModal} notSee={setSeeModal} />
       <FooterMenu />
     </div>
   );
