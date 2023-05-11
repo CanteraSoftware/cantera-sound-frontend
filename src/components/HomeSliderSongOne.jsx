@@ -9,7 +9,7 @@ export function HomeSliderSongOne({api}) {
         {api.map((song) => {
           return (
             <Link 
-              to={`/player?id=${song.id}`} 
+              to={`/player?id=${song.id}`}
               key={song.id} 
               id={song.id} 
               className="HomeSliderSong-song"
