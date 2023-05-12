@@ -16,7 +16,21 @@ export function Home() {
 
   useEffect(() => {
     fetch(url)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status === 500) {
+          window.location.href = window.location.href + '500'
+      } 
+        if (response.status === 521) {
+          window.location.href = window.location.href + '521'
+      } 
+      if (response.status === 404 || response.status != 200) {
+        window.location.href = window.location.href + 'notFound'
+    } 
+        if (response.status === 200) {
+          return response.json();
+      } 
+      }
+      )
       .then((data) => {
         setApi(data.files);
         setIsLoading(false);
