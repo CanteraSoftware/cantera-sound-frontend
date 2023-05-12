@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Add.css';
+import { AddAlert } from './AddAlert';
 
 export function Add({ see, notSee }) {
   //campos del form
@@ -14,6 +15,8 @@ export function Add({ see, notSee }) {
   const [genders, setGenders] = useState([]);
   //desabilita boton guardar
   const [isSubmitting, setIsSubmitting] = useState(false);
+  //alerta
+  const [alert, setAlert] = useState(false)
 
   useEffect(() => {
     //obtengo las categorías
@@ -59,6 +62,7 @@ export function Add({ see, notSee }) {
         const duration = endTime - startTime;
         console.log(`El archivo tardó ${duration} milisegundos en subir.`);
         setIsSubmitting(false);
+        setAlert(true)
       });
   };
 
@@ -158,6 +162,7 @@ export function Add({ see, notSee }) {
               </div>
             </form>
           </div>
+          {alert ? <AddAlert /> : null}
         </div>
       }
     </>
