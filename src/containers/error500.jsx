@@ -6,7 +6,7 @@ import '../styles/error500.css'
 import logoApp from '../images/cat.png';
 import imgError from '../images/error500.png'
 
-export function error500(){
+export function Error500(){
   return(
     
     <div className='error500-header'>
