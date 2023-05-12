@@ -5,21 +5,35 @@ import { FooterMenu } from "../components/FooterMenu";
 import { LoadingPlayer } from '../components/LoadingPlayer';
 
 export function Player() {
-  const url = "http://18.117.98.49:5000/api/v1/files";
   const [isLoading, setIsloading] = useState(true)
   const [api, setApi] = useState([])
-  const [_, idUrl] = window.location.href.split('=');
+  const [_, categoryNumberYId] = window.location.href.split('=');
+  const [idUrl, categoryId] = categoryNumberYId.split('&');
   const index = api.findIndex((item)=> item.id === Number(idUrl))
+  const url = `http://18.117.98.49:5000/api/v1/categories/${categoryId}`;
+  
   useEffect(() => {
     fetch(url)
-      .then(response => response.json())
+      .then(response => {
+        if (response.status === 500) {
+          window.location.href = window.location.href + '500'
+      } 
+        if (response.status === 521) {
+          window.location.href = window.location.href + '521'
+      } 
+      if (response.status === 404 || response.status != 200) {
+        window.location.href = window.location.href + 'notFound'
+    } 
+        if (response.status === 200) {
+          return response.json();
+      } 
+      })
       .then(data=>{
-        console.log({data});
-        setApi(data)
+        setApi(data.files)
         setIsloading(false);
       })
   }, [])
-
+  
   return (
     <div className="Player">
       <PlayerHeader />
