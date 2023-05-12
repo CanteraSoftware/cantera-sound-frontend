@@ -6,9 +6,9 @@ import '../styles/NotFound.css'
 import logoApp from '../images/cat.png';
 import imgError from '../images/error521.jpg'
 
-export function error521(){
+export function Error521(){
   return(
-    
+
     <div className='error521-header'>
       <div className="error521-header-title">
         <div className="error521-header-content-title">
