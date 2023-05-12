@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/Add.css';
 import { AddAlert } from './AddAlert';
+import '../styles/Add.css';
 
 export function Add({ see, notSee }) {
   //campos del form
