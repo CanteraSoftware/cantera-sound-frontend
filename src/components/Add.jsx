@@ -36,8 +36,6 @@ export function Add({ see, notSee }) {
     e.preventDefault();
     //activar el estado de envío
     setIsSubmitting(true)
-
-    const startTime = performance.now()
     
     //objeto que se enviará
     const formData = new FormData();
@@ -58,9 +56,6 @@ export function Add({ see, notSee }) {
       .then((data) => {
         console.log(data);
         setFileUrl(data.Location);
-        const endTime = performance.now();
-        const duration = endTime - startTime;
-        console.log(`El archivo tardó ${duration} milisegundos en subir.`);
         setIsSubmitting(false);
         setAlert(true)
       });
