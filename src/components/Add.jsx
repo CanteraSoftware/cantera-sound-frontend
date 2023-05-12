@@ -107,7 +107,7 @@ export function Add({ see, notSee }) {
                   className='App-input'
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option value="" disabled selected hidden></option>
+                  <option disabled selected hidden></option>
                   {categories.map((category) => {
                     return (
                       <option
@@ -126,7 +126,7 @@ export function Add({ see, notSee }) {
                   className='App-input'
                   onChange={(e) => setGenres(e.target.value)}
                 >
-                  <option value="" disabled selected hidden></option>
+                  <option disabled selected hidden></option>
                   {genders.map((genres) => {
                     return (
                       <option
@@ -162,7 +162,12 @@ export function Add({ see, notSee }) {
               </div>
             </form>
           </div>
-          {alert ? <AddAlert /> : null}
+          {alert ? <AddAlert
+            see={see}
+            notSee={notSee}
+            alert={alert}
+            setAlert={setAlert}
+          /> : null}
         </div>
       }
     </>
