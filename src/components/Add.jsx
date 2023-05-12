@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import { AddAlert } from './AddAlert';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Add.css';
 
 export function Add({ see, notSee }) {
@@ -17,6 +19,7 @@ export function Add({ see, notSee }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   //alerta
   const [alert, setAlert] = useState(false)
+  const [alertRequired, setAlertRequired] = useState(false)
 
   useEffect(() => {
     //obtengo las categorías
@@ -36,7 +39,13 @@ export function Add({ see, notSee }) {
     e.preventDefault();
     //activar el estado de envío
     setIsSubmitting(true)
-    
+
+    //validar campos requeridos
+    if (!nameFile || !nameAuthor || !category || !genres || !file) {
+      setAlertRequired(true);
+      return;
+    }
+
     //objeto que se enviará
     const formData = new FormData();
     formData.append('nameFile', nameFile);
@@ -64,6 +73,18 @@ export function Add({ see, notSee }) {
   const handleFileInputChange = (e) => {
     setFile(e.target.files[0]);
   };
+
+  const notify = () => toast('Completa todos los campos del formulario', {
+      position: "bottom-center",
+      type: "error",
+      autoClose: 6000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
 
   const handleClick = () => {
     notSee(false);
@@ -151,6 +172,7 @@ export function Add({ see, notSee }) {
                   type='submit'
                   className={`App-btn-save ${isSubmitting ? 'disabled' : ''}`}
                   disabled={isSubmitting}
+                  onClick={notify}
                 >
                   Guardar
                 </button>
@@ -163,6 +185,9 @@ export function Add({ see, notSee }) {
             alert={alert}
             setAlert={setAlert}
           /> : null}
+          {alertRequired || isSubmitting ? (
+            <ToastContainer />
+          ) : null}
         </div>
       }
     </>
