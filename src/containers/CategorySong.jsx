@@ -21,7 +21,7 @@ export function CategorySong() {
         if (response.status === 521) {
           window.location.href = window.location.href + '521'
       } 
-        if (response.status === 404) {
+        if (response.status === 404 || response.status != 200) {
           window.location.href = window.location.href + 'notFound'
       } 
         if (response.status === 200) {
