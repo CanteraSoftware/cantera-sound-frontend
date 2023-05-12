@@ -7,7 +7,8 @@ import { CategorySong } from "../containers/CategorySong";
 import { CategoryPodcast } from "../containers/CategoryPodcast";
 import { CategoryAudioBooks } from "../containers/CategoryAudioBooks";
 import { NotFound } from "../containers/NotFound";
-
+import { Error500 } from "../containers/error500";
+import { Error521 } from "../containers/error521";
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,8 @@ function App() {
         <Route path="/categorypodcast" element={<CategoryPodcast />} />
         <Route path="/categoryaudiobooks" element={<CategoryAudioBooks />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/500" element={<Error500 />} />
+        <Route path="/521" element={<Error521 />} />
       </Routes>
     </BrowserRouter>
   );
