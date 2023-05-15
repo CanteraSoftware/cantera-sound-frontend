@@ -1,27 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { AddAlert } from "./AddAlert";
-import { ErrorAlert } from "./ErrorAlert";
-import "react-toastify/dist/ReactToastify.css";
-import "../styles/Add.css";
+import React, { useState, useEffect } from 'react';
+import { AddAlert } from './AddAlert';
+import '../styles/Add.css';
 
 export function Add({ see, notSee }) {
   //campos del form
-  const [nameFile, setNameFile] = useState("");
-  const [nameAuthor, setNameAuthor] = useState("");
-  const [category, setCategory] = useState("");
-  const [genres, setGenres] = useState("");
+  const [nameFile, setNameFile] = useState('');
+  const [nameAuthor, setNameAuthor] = useState('');
+  const [category, setCategory] = useState('');
+  const [genres, setGenres] = useState('');
   const [file, setFile] = useState(null);
-  const [fileUrl, setFileUrl] = useState("");
+  const [fileUrl, setFileUrl] = useState('');
   //categorias
   const [categories, setCategories] = useState([]);
   const [genders, setGenders] = useState([]);
   //desabilita boton guardar
   const [isSubmitting, setIsSubmitting] = useState(false);
   //alerta
-  const [alert, setAlert] = useState(false);
-  const [alertRequired, setAlertRequired] = useState(false);
-  //agregar error
+  const [alert, setAlert] = useState(false)
+  const [alertRequired, setAlertRequired] = useState(false)
 
   useEffect(() => {
     //obtengo las categorías
@@ -37,16 +33,48 @@ export function Add({ see, notSee }) {
       .then((data) => setGenders(data));
   }, []);
 
+  const validateForm = () => {
+  let formIsValid = true;
+  const newErrors = {};
+
+  //validar campo nombre
+  if (!nameFile.trim()) {
+    formIsValid = false;
+    newErrors.nameFile = 'El campo Nombre es obligatorio.';
+  }
+
+  //validar campo artista / autor
+  if (!nameAuthor.trim()) {
+    formIsValid = false;
+    newErrors.nameAuthor = 'El campo Artista / Autor es obligatorio.';
+  }
+
+  //validar campo categorías
+  if (!category) {
+    formIsValid = false;
+    newErrors.category = 'Debes seleccionar una categoría.';
+  }
+
+  //validar campo géneros
+  if (!genres) {
+    formIsValid = false;
+    newErrors.genres = 'Debes seleccionar un género.';
+  }
+
+  //validar campo archivo
+  if (!file) {
+    formIsValid = false;
+    newErrors.file = 'Debes seleccionar un archivo.';
+  }
+
+  setErrors(newErrors);
+  return formIsValid;
+};
+
   const handleSubmit = (e) => {
     e.preventDefault();
     //activar el estado de envío
     setIsSubmitting(true);
-
-    //validar campos requeridos
-    if (!nameFile || !nameAuthor || !category || !genres || !file) {
-      setAlertRequired(true);
-      return;
-    }
 
     //objeto que se enviará
     const formData = new FormData();
@@ -60,7 +88,7 @@ export function Add({ see, notSee }) {
     const url = "http://18.117.98.49:5000/api/v1/files/upload";
 
     fetch(url, {
-      method: "POST",
+      method: 'POST',
       body: formData,
     })
       .then((response) => response.json())
@@ -68,7 +96,7 @@ export function Add({ see, notSee }) {
         console.log(data);
         setFileUrl(data.Location);
         setIsSubmitting(false);
-        setAlert(true);
+        setAlert(true)
       });
   };
 
@@ -76,8 +104,7 @@ export function Add({ see, notSee }) {
     setFile(e.target.files[0]);
   };
 
-  const notify = () =>
-    toast("Completa todos los campos del formulario", {
+  const notify = () => toast('Completa todos los campos del formulario', {
       position: "bottom-center",
       type: "error",
       autoClose: 6000,
@@ -95,35 +122,37 @@ export function Add({ see, notSee }) {
 
   return (
     <>
-      {see && (
-        <div className="App">
+      {see &&
+        <div className='App'>
           <div className="App-container">
             <h2>Agrega Tu Archivo</h2>
-            <form onSubmit={handleSubmit} className="App-content">
-              <div className="App-content-input">
-                <label className="name">Nombre</label>
+            <form onSubmit={handleSubmit} className='App-content'>
+              <div className='App-content-input'>
+                <label className='name'>Nombre</label>
                 <input
-                  className="App-input"
+                  className='App-input'
                   type="text"
                   id="name"
                   value={nameFile}
                   onChange={(e) => setNameFile(e.target.value)}
                 />
+                {errors.nameFile && <div className="Add-error">{errors.nameFile}</div>}
               </div>
-              <div className="App-content-input">
-                <label className="artist">Artista / Autor</label>
+              <div className='App-content-input'>
+                <label className='artist'>Artista / Autor</label>
                 <input
-                  className="App-input"
+                  className='App-input'
                   type="text"
                   id="artist"
                   value={nameAuthor}
                   onChange={(e) => setNameAuthor(e.target.value)}
                 />
+                {errors.nameAuthor && <div className="Add-error">{errors.nameAuthor}</div>}
               </div>
-              <div className="App-content-input">
-                <label className="category">Categorías</label>
+              <div className='App-content-input'>
+                <label className='category'>Categorías</label>
                 <select
-                  className="App-input"
+                  className='App-input'
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   <option disabled selected hidden></option>
@@ -135,11 +164,12 @@ export function Add({ see, notSee }) {
                     );
                   })}
                 </select>
+                {errors.category && <div className="Add-error">{errors.category}</div>}
               </div>
-              <div className="App-content-input">
-                <label className="genres">Géneros</label>
+              <div className='App-content-input'>
+                <label className='genres'>Géneros</label>
                 <select
-                  className="App-input"
+                  className='App-input'
                   onChange={(e) => setGenres(e.target.value)}
                 >
                   <option disabled selected hidden></option>
@@ -151,42 +181,41 @@ export function Add({ see, notSee }) {
                     );
                   })}
                 </select>
+                {errors.genres && <div className="Add-error">{errors.genres}</div>}
               </div>
-              <div className="App-content-input">
-                <label className="file">Archivo</label>
+              <div className='App-content-input'>
+                <label className='file'>Archivo</label>
                 <input
-                  className="App-input-audio"
+                  className='App-input-audio'
                   type="file"
                   name="uploads"
                   accept=".mp3"
                   multiple
                   onChange={handleFileInputChange}
                 />
+                {errors.file && <div className="Add-error">{errors.file}</div>}
               </div>
               <div className="App-container-btn">
-                <button className="App-btn-cancel" onClick={handleClick}>
-                  Cancelar
-                </button>
+                <button className='App-btn-cancel' onClick={handleClick}>Cancelar</button>
                 <button
-                  type="submit"
-                  className={`App-btn-save ${isSubmitting ? "disabled" : ""}`}
+                  type='submit'
+                  className={`App-btn-save ${isSubmitting ? 'disabled' : ''}`}
                   disabled={isSubmitting}
-                  onClick={notify}
                 >
                   Guardar
                 </button>
               </div>
             </form>
           </div>
-          {alert ? (
-            <AddAlert
-              see={see}
-              notSee={notSee}
-              alert={alert}
-              setAlert={setAlert}
-            />
+          {alert ? <AddAlert
+            see={see}
+            notSee={notSee}
+            alert={alert}
+            setAlert={setAlert}
+          /> : null}
+          {alertRequired || isSubmitting ? (
+            <ToastContainer />
           ) : null}
-          {alertRequired || isSubmitting ? <ToastContainer /> : null}
         </div>
       )}
     </>
