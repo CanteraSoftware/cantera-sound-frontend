@@ -12,6 +12,7 @@ export function PlayerSlider({api, indexp}) {
   const progressBarRef = useRef(null)
   const [totalTime, setTotalTime] = useState('0:00')
   const [currentTimeSong, setCurrentTimeSong] = useState('0:00')
+  const [isRepeated, setIsrepeated] = useState(false)
   useEffect(() => {
     setSongDescription({name: api[index].nameFile, artist: api[index].nameAuthor})
   }, [index])
@@ -39,6 +40,9 @@ export function PlayerSlider({api, indexp}) {
       }else{
         setCurrentTimeSong(`${min}:${seconds.toFixed()}`)
       }
+      if(audioRef.current.currentTime.toFixed()==(duration-1).toFixed() && !isRepeated){
+        setIndex(index+1)
+      }
     }, 1000)
     let minutos = Math.floor(audioRef.current.duration / 60);
     let segundosRestantes = audioRef.current.duration % 60;
@@ -49,7 +53,7 @@ export function PlayerSlider({api, indexp}) {
       setTotalTime(`${minutos}:${segundosRestantes.toFixed()}`)
     }
     return () => clearInterval(intervalId)
-  }, [duration])
+  }, [duration, isRepeated])
 
   const updateIndex = (newVal) => {
     setIndex(newVal)
@@ -66,13 +70,15 @@ export function PlayerSlider({api, indexp}) {
   const handleLoadedMetadata = () => {
     setDuration(audioRef.current.duration)
   }
-
+  
+  const handleRepeat = ()=>{
+  setIsrepeated(!isRepeated)
+}
   return (
     <>
       <audio
         ref={audioRef}  
         src={api[index].fileUrl}
-        autoPlay
         loop
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
@@ -104,7 +110,7 @@ export function PlayerSlider({api, indexp}) {
           <span>{totalTime}</span>
         </div>
       </section>
-      <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} api={api} index={index} updateIndex={updateIndex}/>
+      <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} api={api} index={index} updateIndex={updateIndex} isRepeated={isRepeated} handleRepeat={handleRepeat} />
     </>
   );
 }
