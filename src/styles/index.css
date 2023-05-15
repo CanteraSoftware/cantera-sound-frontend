@@ -5,21 +5,19 @@
 }
 :root {
   --background: #012433;
-  /* --background: #00425e; */
   --background-header-menu: #011f2c;
   --title: #008a5e;
   --text-primary: #fff;
   --text-secundary: #acacac;
-  /* --text-secundary: #5b5b5b; */
+  --text-shadow: #777;
   --icons-buttons: #198754;
   --circle-icons: #d9d9d9;
+  --circle-shadow: #011822;
+  --player-shadow: #052f41;
   --footer-menu-hover: #2eb676;
-
-  /*
-  #1e8062
-  #18533c
-  #48bc5d
-  */
+  --errors-form: #d31b14;
+  --loading: #adadad85;
+  --progressline: rgba(128, 128, 128, 0.199);
 }
 html {
   font-size: 62.5%;
