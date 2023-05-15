@@ -8,29 +8,30 @@ export function Add({ see, notSee }) {
   const [nameAuthor, setNameAuthor] = useState('');
   const [category, setCategory] = useState('');
   const [genres, setGenres] = useState('');
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState('');
   const [fileUrl, setFileUrl] = useState('');
-  //categorias
+  //validacion de form
+  const [errors, setErrors] = useState({});
+  //categorias y generos
   const [categories, setCategories] = useState([]);
   const [genders, setGenders] = useState([]);
   //desabilita boton guardar
   const [isSubmitting, setIsSubmitting] = useState(false);
   //alerta
   const [alert, setAlert] = useState(false)
-  const [alertRequired, setAlertRequired] = useState(false)
 
   useEffect(() => {
     //obtengo las categorías
-    fetch("http://18.117.98.49:5000/api/v1/categories")
-      .then((response) => response.json())
-      .then((data) => setCategories(data));
+    fetch('http://18.117.98.49:5000/api/v1/categories')
+      .then(response => response.json())
+      .then(data => setCategories(data))
   }, []);
 
   useEffect(() => {
     //obtengo los géneros
-    fetch("http://18.117.98.49:5000/api/v1/genders")
-      .then((response) => response.json())
-      .then((data) => setGenders(data));
+    fetch('http://18.117.98.49:5000/api/v1/genders')
+      .then(response => response.json())
+      .then(data => setGenders(data))
   }, []);
 
   const validateForm = () => {
@@ -74,47 +75,37 @@ export function Add({ see, notSee }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     //activar el estado de envío
-    setIsSubmitting(true);
+    setIsSubmitting(true)
 
     //objeto que se enviará
     const formData = new FormData();
-    formData.append("nameFile", nameFile);
-    formData.append("nameAuthor", nameAuthor);
-    formData.append("categoryId", category);
-    formData.append("genderId", genres);
-    formData.append("file", file);
-    formData.append("fileUrl", fileUrl);
+    formData.append('nameFile', nameFile);
+    formData.append('nameAuthor', nameAuthor);
+    formData.append('categoryId', category);
+    formData.append('genderId', genres);
+    formData.append('file', file);
+    formData.append('fileUrl', fileUrl);
 
-    const url = "http://18.117.98.49:5000/api/v1/files/upload";
+    const url = 'http://18.117.98.49:5000/api/v1/files/upload';
 
-    fetch(url, {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setFileUrl(data.Location);
-        setIsSubmitting(false);
-        setAlert(true)
-      });
+    if (validateForm()) {
+      fetch(url, {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setFileUrl(data.Location);
+          setIsSubmitting(false);
+          setAlert(true)
+        });
+    }
   };
 
   const handleFileInputChange = (e) => {
     setFile(e.target.files[0]);
   };
-
-  const notify = () => toast('Completa todos los campos del formulario', {
-      position: "bottom-center",
-      type: "error",
-      autoClose: 6000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
 
   const handleClick = () => {
     notSee(false);
@@ -123,70 +114,76 @@ export function Add({ see, notSee }) {
   return (
     <>
       {see &&
-        <div className='App'>
-          <div className="App-container">
+        <div className='Add'>
+          <div className="Add-container">
             <h2>Agrega Tu Archivo</h2>
-            <form onSubmit={handleSubmit} className='App-content'>
-              <div className='App-content-input'>
+            <form onSubmit={handleSubmit} className='Add-content'>
+              <div className='Add-content-input'>
                 <label className='name'>Nombre</label>
                 <input
-                  className='App-input'
+                  className='Add-input'
                   type="text"
-                  id="name"
+                  id='name'
                   value={nameFile}
                   onChange={(e) => setNameFile(e.target.value)}
                 />
                 {errors.nameFile && <div className="Add-error">{errors.nameFile}</div>}
               </div>
-              <div className='App-content-input'>
+              <div className='Add-content-input'>
                 <label className='artist'>Artista / Autor</label>
                 <input
-                  className='App-input'
+                  className='Add-input'
                   type="text"
-                  id="artist"
+                  id='artist'
                   value={nameAuthor}
                   onChange={(e) => setNameAuthor(e.target.value)}
                 />
                 {errors.nameAuthor && <div className="Add-error">{errors.nameAuthor}</div>}
               </div>
-              <div className='App-content-input'>
+              <div className='Add-content-input'>
                 <label className='category'>Categorías</label>
                 <select
-                  className='App-input'
+                  className='Add-input'
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   <option disabled selected hidden></option>
                   {categories.map((category) => {
                     return (
-                      <option key={category.id} value={category.id}>
+                      <option
+                        key={category.id}
+                        value={category.id}
+                      >
                         {category.nameCategory}
                       </option>
-                    );
+                    )
                   })}
                 </select>
                 {errors.category && <div className="Add-error">{errors.category}</div>}
               </div>
-              <div className='App-content-input'>
+              <div className='Add-content-input'>
                 <label className='genres'>Géneros</label>
                 <select
-                  className='App-input'
+                  className='Add-input'
                   onChange={(e) => setGenres(e.target.value)}
                 >
                   <option disabled selected hidden></option>
                   {genders.map((genres) => {
                     return (
-                      <option key={genres.id} value={genres.id}>
+                      <option
+                        key={genres.id}
+                        value={genres.id}
+                      >
                         {genres.nameGender}
                       </option>
-                    );
+                    )
                   })}
                 </select>
                 {errors.genres && <div className="Add-error">{errors.genres}</div>}
               </div>
-              <div className='App-content-input'>
+              <div className='Add-content-input'>
                 <label className='file'>Archivo</label>
                 <input
-                  className='App-input-audio'
+                  className='Add-input-audio'
                   type="file"
                   name="uploads"
                   accept=".mp3"
@@ -195,11 +192,11 @@ export function Add({ see, notSee }) {
                 />
                 {errors.file && <div className="Add-error">{errors.file}</div>}
               </div>
-              <div className="App-container-btn">
-                <button className='App-btn-cancel' onClick={handleClick}>Cancelar</button>
+              <div className="Add-container-btn">
+                <button className='Add-btn-cancel' onClick={handleClick}>Cancelar</button>
                 <button
                   type='submit'
-                  className={`App-btn-save ${isSubmitting ? 'disabled' : ''}`}
+                  className={`Add-btn-save ${isSubmitting ? 'disabled' : ''}`}
                   disabled={isSubmitting}
                 >
                   Guardar
@@ -207,17 +204,15 @@ export function Add({ see, notSee }) {
               </div>
             </form>
           </div>
-          {alert ? <AddAlert
+          {alert && isLoading ? <AddAlert
             see={see}
             notSee={notSee}
             alert={alert}
             setAlert={setAlert}
+            dataFile={dataFile}
           /> : null}
-          {alertRequired || isSubmitting ? (
-            <ToastContainer />
-          ) : null}
         </div>
-      )}
+      }
     </>
   );
 }
