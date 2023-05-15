@@ -19,8 +19,6 @@ export function Add({ see, notSee }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   //alerta
   const [alert, setAlert] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [dataFile, setDataFile] = useState({});
 
   useEffect(() => {
     //obtengo las categorías
@@ -41,7 +39,6 @@ export function Add({ see, notSee }) {
     const newErrors = {};
 
     //validar campo nombre
-    //trim() hace que si hay solo espacios en blanco los elimina
     if (!nameFile.trim()) {
       formIsValid = false;
       newErrors.nameFile = "El campo Nombre es obligatorio.";
@@ -99,11 +96,9 @@ export function Add({ see, notSee }) {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          setDataFile(data);
           setFileUrl(data.Location);
           setIsSubmitting(false);
           setAlert(true);
-          setIsLoading(true);
         });
     }
   };
