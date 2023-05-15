@@ -17,7 +17,9 @@ export function Add({ see, notSee }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   //alerta
   const [alert, setAlert] = useState(false)
-
+  //Datos para reproducir el audio subido
+  const [isLoading, setIsloading] = useState(false)
+  const [dataFile, setDataFile] = useState({})
   useEffect(() => {
     //obtengo las categorías
     fetch('http://18.117.98.49:5000/api/v1/categories')
@@ -54,10 +56,11 @@ export function Add({ see, notSee }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        setDataFile(data)
         setFileUrl(data.Location);
         setIsSubmitting(false);
         setAlert(true)
+        setIsloading(true)
       });
   };
 
@@ -157,11 +160,12 @@ export function Add({ see, notSee }) {
               </div>
             </form>
           </div>
-          {alert ? <AddAlert
+          {alert && isLoading ? <AddAlert
             see={see}
             notSee={notSee}
             alert={alert}
             setAlert={setAlert}
+            dataFile={dataFile}
           /> : null}
         </div>
       }
