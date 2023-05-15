@@ -121,7 +121,7 @@ export function Add({ see, notSee }) {
       {see &&
         <div className='Add'>
           <div className="Add-container">
-            <h2>Agrega Tu Archivo</h2>
+            <h2>Agrega Tu Audio</h2>
             <form onSubmit={handleSubmit} className='Add-content'>
               <div className='Add-content-input'>
                 <label className='name'>Nombre</label>
@@ -186,7 +186,7 @@ export function Add({ see, notSee }) {
                 {errors.genres && <div className="Add-error">{errors.genres}</div>}
               </div>
               <div className='Add-content-input'>
-                <label className='file'>Archivo</label>
+                <label className='file'>Audio</label>
                 <input
                   className='Add-input-audio'
                   type="file"
