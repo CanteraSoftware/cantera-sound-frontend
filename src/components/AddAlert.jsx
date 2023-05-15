@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { VscHome } from "react-icons/vsc";
 import { BsPlayCircle } from "react-icons/bs";
 
-export function AddAlert({ see, notSee, alert, setAlert }) {
+export function AddAlert({ see, notSee, alert, setAlert, dataFile }) {
   const GoToHome = () => {
     setAlert(!alert);
     notSee(!see);
@@ -26,7 +26,7 @@ export function AddAlert({ see, notSee, alert, setAlert }) {
             <VscHome className="AddAlert-btn-icon" />
             Ir al inicio
           </button>
-          <Link className="AddAlert-btn" to={"/player"}>
+          <Link className="AddAlert-btn" to={`/player?id=${dataFile.id}&${dataFile.categoryId}`}>
             <BsPlayCircle className="AddAlert-btn-icon" />
             Reproducir audio
           </Link>

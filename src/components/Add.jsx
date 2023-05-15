@@ -8,7 +8,7 @@ export function Add({ see, notSee }) {
   const [nameAuthor, setNameAuthor] = useState('');
   const [category, setCategory] = useState('');
   const [genres, setGenres] = useState('');
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState('');
   const [fileUrl, setFileUrl] = useState('');
   //validacion de form
   const [errors, setErrors] = useState({});
@@ -18,7 +18,7 @@ export function Add({ see, notSee }) {
   //desabilita boton guardar
   const [isSubmitting, setIsSubmitting] = useState(false);
   //alerta
-  const [alert, setAlert] = useState(false);
+  const [alert, setAlert] = useState(false)
 
   useEffect(() => {
     //obtengo las categorías
@@ -204,11 +204,12 @@ export function Add({ see, notSee }) {
               </div>
             </form>
           </div>
-          {alert ? <AddAlert
+          {alert && isLoading ? <AddAlert
             see={see}
             notSee={notSee}
             alert={alert}
             setAlert={setAlert}
+            dataFile={dataFile}
           /> : null}
         </div>
       }
