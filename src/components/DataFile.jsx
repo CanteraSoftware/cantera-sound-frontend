@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import '../styles/DataFile.css'
 
 export function DataFile({title, artist, img, id, catId}) {
-
   return (
     <div className='DataFile'>
       <ul>
