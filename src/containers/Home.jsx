@@ -13,7 +13,7 @@ export function Home() {
   const [api, setApi] = useState([]);
   const [seeModal, setSeeModal] = useState(false);
   const [isloading, setIsLoading] = useState(true);
-
+  
   useEffect(() => {
     fetch(url)
       .then((response) => {
@@ -32,6 +32,7 @@ export function Home() {
       }
       )
       .then((data) => {
+        data.files.sort(()=>{ return Math.random() - 0.5 })
         setApi(data.files);
         setIsLoading(false);
       });

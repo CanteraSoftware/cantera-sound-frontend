@@ -12,7 +12,7 @@ export function PlayerHeader() {
   const [_, categoryNumber] = window.location.href.split('&')
   useEffect(()=>{
     if (categoryNumber == 1){
-      setCategoryLink('/categorysong')
+      setCategoryLink('')
     }
     if (categoryNumber == 2){
       setCategoryLink('/categorypodcast')
