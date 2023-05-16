@@ -114,3 +114,4 @@ export function PlayerSlider({api, indexp}) {
     </>
   );
 }
+//Plnpmayer Slider
