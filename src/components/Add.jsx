@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AddAlert } from './AddAlert';
+import { ErrorAlert } from './ErrorAlert';
 import { UploadingAudio } from './UploadingAudio';
 import '../styles/Add.css';
 
@@ -221,7 +222,12 @@ export function Add({ see, notSee }) {
             setAlert={setAlert}
             dataFile={dataFile}
           /> : null}
-          {alertError ? <div>ERROR</div> : null}
+          {alertError ? <ErrorAlert
+            see={see}
+            notSee={notSee}
+            alert={alertError}
+            setAlert={setAlertError}
+          /> : null}
           {loadingAudio ? <UploadingAudio /> : null}
         </div>
       }
