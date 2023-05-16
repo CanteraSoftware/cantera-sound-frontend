@@ -78,7 +78,7 @@ export function Search() {
               catId={file.categoryId}
             />
           )
-        }).slice(0, 5)}
+        }).slice(0, 7)}
       </div>
       <div className="Search-container-podcast">
         <h2>Podcast</h2>
