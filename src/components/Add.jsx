@@ -15,10 +15,10 @@ export function Add({ see, notSee }) {
   //categorias y generos
   const [categories, setCategories] = useState([]);
   const [genders, setGenders] = useState([]);
-  //desabilita boton guardar
-  const [isSubmitting, setIsSubmitting] = useState(false);
   //alerta
   const [alert, setAlert] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [dataFile, setDataFile] = useState({});
 
   useEffect(() => {
     //obtengo las categorías
@@ -99,6 +99,7 @@ export function Add({ see, notSee }) {
           setFileUrl(data.Location);
           setIsSubmitting(false);
           setAlert(true);
+          setIsLoading(true);
         });
     }
   };

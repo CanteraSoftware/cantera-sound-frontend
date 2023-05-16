@@ -84,7 +84,7 @@ input[type="file" i] {
   margin-left: 14px;
   padding-top: 4px;
   font-size: 1.1rem;
-  color: #d31b14;
+  color: var(--errors-form);
 }
 .Add-container-btn {
   width: 100%;
