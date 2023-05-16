@@ -113,9 +113,5 @@ export function PlayerSlider({api, indexp}) {
       <PlayerButtons isPlaying={isPlaying} handlePlayPause={handlePlayPause} api={api} index={index} updateIndex={updateIndex} isRepeated={isRepeated} handleRepeat={handleRepeat} />
     </>
   );
-<<<<<<< HEAD
 }
-//Player Slider
-=======
-}
->>>>>>> 0740e5f7441393cccd1afd2c3cb7ca0e5d23d284
+//Plnpmayer Slider
