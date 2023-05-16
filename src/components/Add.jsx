@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AddAlert } from "./AddAlert";
+import { UploadingAudio } from "./UploadingAudio";
 import "../styles/Add.css";
 
 export function Add({ see, notSee }) {
@@ -17,8 +18,11 @@ export function Add({ see, notSee }) {
   const [genders, setGenders] = useState([]);
   //alerta
   const [alert, setAlert] = useState(false);
+  const [alertError, setAlertError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [dataFile, setDataFile] = useState({});
+  //canga mientras se envia el audio
+  const [loadingAudio, setLoadingAudio] = useState(false);
 
   useEffect(() => {
     //obtengo las categorías
@@ -39,6 +43,7 @@ export function Add({ see, notSee }) {
     const newErrors = {};
 
     //validar campo nombre
+    //trim() hace que si hay solo espacios en blanco los elimina
     if (!nameFile.trim()) {
       formIsValid = false;
       newErrors.nameFile = "El campo Nombre es obligatorio.";
@@ -65,7 +70,7 @@ export function Add({ see, notSee }) {
     //validar campo archivo
     if (!file) {
       formIsValid = false;
-      newErrors.file = "Debes seleccionar un archivo.";
+      newErrors.file = "Debes seleccionar un audio.";
     }
 
     setErrors(newErrors);
@@ -74,8 +79,8 @@ export function Add({ see, notSee }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //activar el estado de envío
-    setIsSubmitting(true);
+
+    validateForm() ? setLoadingAudio(true) : setLoadingAudio(false);
 
     //objeto que se enviará
     const formData = new FormData();
@@ -96,10 +101,15 @@ export function Add({ see, notSee }) {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+          setDataFile(data);
           setFileUrl(data.Location);
-          setIsSubmitting(false);
+          setLoadingAudio(false);
           setAlert(true);
           setIsLoading(true);
+        })
+        .catch((error) => {
+          setAlertError(true);
+          console.error("Ocurrió un error:", error);
         });
     }
   };
@@ -117,7 +127,7 @@ export function Add({ see, notSee }) {
       {see && (
         <div className="Add">
           <div className="Add-container">
-            <h2>Agrega Tu Archivo</h2>
+            <h2>Agrega Tu Audio</h2>
             <form onSubmit={handleSubmit} className="Add-content">
               <div className="Add-content-input">
                 <label className="name">Nombre</label>
@@ -184,7 +194,7 @@ export function Add({ see, notSee }) {
                 )}
               </div>
               <div className="Add-content-input">
-                <label className="file">Archivo</label>
+                <label className="file">Audio</label>
                 <input
                   className="Add-input-audio"
                   type="file"
@@ -199,11 +209,7 @@ export function Add({ see, notSee }) {
                 <button className="Add-btn-cancel" onClick={handleClick}>
                   Cancelar
                 </button>
-                <button
-                  type="submit"
-                  className={`Add-btn-save ${isSubmitting ? "disabled" : ""}`}
-                  disabled={isSubmitting}
-                >
+                <button type="submit" className="Add-btn-save">
                   Guardar
                 </button>
               </div>
@@ -218,6 +224,8 @@ export function Add({ see, notSee }) {
               dataFile={dataFile}
             />
           ) : null}
+          {alertError ? <div>ERROR</div> : null}
+          {loadingAudio ? <UploadingAudio /> : null}
         </div>
       )}
     </>
