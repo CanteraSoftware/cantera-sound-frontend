@@ -8,11 +8,13 @@ import '../styles/Search.css'
 //icons
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgClose } from 'react-icons/cg'
+import { LoadingDataFile } from '../components/LoadingDataFile';
 
 export function Search() {
   const [files, setFiles] = useState([])
   const [filesSearch, setFilesSearch] = useState([])
   const [search, setSearch] = useState('')
+  const [isloading, setIsLoading] = useState(true);
 
   const url = "http://18.117.98.49:5000/api/v1/files";
 
@@ -23,6 +25,7 @@ export function Search() {
         data.sort(() => {return Math.random() - 0.5})
         setFiles(data)
         setFilesSearch(data)
+        setIsLoading(false)
       })
   }, [])
 
@@ -63,7 +66,7 @@ export function Search() {
       </div>
       <div className="Search-container-suggesting">
         <h2>Sugerencias para ti</h2>
-        {files.map(file => {
+        {isloading ? <LoadingDataFile /> : files.map(file => {
           return (
             <DataFile
               key={file.id}
