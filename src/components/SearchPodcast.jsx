@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LoadingSearchPodcast } from './LoadingSearchPodcast';
-import '../styles/SearchPodcast.css'
+import '../styles/SearchCategories.css'
 
 export function SearchPodcast() {
   const [podcasts, setPodcasts] = useState([])
@@ -20,17 +20,17 @@ export function SearchPodcast() {
   }, [])
 
   return (
-    <div className='SearchPodcast'>
+    <div className='SearchCategories'>
       {isloading ? <LoadingSearchPodcast /> : podcasts.map((podcast) => {
         return (
           <Link
             to={`/player?id=${podcast.id}&1`}
             key={podcast.id}
             id={podcast.id}
-            className="SearchPodcast-item"
+            className="SearchCategories-item"
           >
             <img src={podcast.imageUrl} alt={podcast.nameFile} />
-            <div className='SearchPodcast-description'>
+            <div className='SearchCategories-description'>
               <h3>{podcast.nameFile}</h3>
               <p>{podcast.nameAuthor}</p>
             </div>
