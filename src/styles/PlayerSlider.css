@@ -20,7 +20,7 @@
   height: 230px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 2px 2px 4px #011822, -2px -2px 4px #ffffff2f;
+  box-shadow: 2px 2px 4px var(--circle-shadow), -2px -2px 4px var(--player-shadow);
 }
 .PlayerSlider-container-slider section .none {
   width: 230px;
@@ -43,7 +43,7 @@
   content: "";
   width: 290px;
   height: 2px;
-  background: rgba(128, 128, 128, 0.315);
+  background: var(--progressline);
   border-radius: 10px;
 }
 .Progressline div {

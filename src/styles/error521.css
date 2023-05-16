@@ -30,7 +30,6 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-
 }
 .error521-imgError{
   width: 280px;
@@ -48,7 +47,7 @@
   bottom: 50px;
   font-size: 2.7rem;
   line-height: 35px;
-  text-shadow: 1px 2px 2px gray;
+  text-shadow: 1px 2px 2px var(--text-shadow);
 }
 .error521-error-volver {
   height: 45px;

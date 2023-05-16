@@ -29,12 +29,12 @@ button {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  box-shadow: 0 0 24px 2px #011822;
-  border: #011822;
+  box-shadow: 0 0 24px 2px var(--circle-shadow);
+  border: var(--circle-shadow);
   cursor: pointer;
 }
 .PlayerButtons-container .play-pause:active {
-  box-shadow: #011822;
+  box-shadow: var(--circle-shadow);
   transform: translate(3px, 3px);
 }
 .btnPlay {

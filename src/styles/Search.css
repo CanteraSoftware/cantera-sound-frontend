@@ -8,7 +8,7 @@
   background: var(--background-header-menu);
   display: flex;
   border-radius: 50px;
-  box-shadow: 0 0 4px 2px #011924;
+  box-shadow: 0 0 4px 2px var(--circle-shadow);
 }
 .Search-input {
   width: 90%;
