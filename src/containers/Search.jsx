@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DataFile } from '../components/DataFile';
+import { SearchPodcast } from '../components/SearchPodcast';
 import { FooterMenu } from '../components/FooterMenu';
 import '../styles/Search.css'
 
@@ -77,6 +78,7 @@ export function Search() {
       </div>
       <div className="Search-container-podcast">
         <h2>Podcast</h2>
+        <SearchPodcast />
       </div>
       <FooterMenu />
     </div>
