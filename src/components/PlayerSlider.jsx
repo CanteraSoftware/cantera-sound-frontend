@@ -80,6 +80,7 @@ export function PlayerSlider({api, indexp}) {
         ref={audioRef}  
         src={api[index].fileUrl}
         loop
+        autoPlay
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
       >
