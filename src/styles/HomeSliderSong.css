@@ -3,20 +3,28 @@
   padding-bottom: 12px;
 }
 .HomeSliderSong-container {
-  width: 300px;
+  width: 316px;
   display: flex;
   flex-direction: column;
   position: relative;
   scroll-snap-align: start;
 }
 .HomeSliderSong-song {
+  margin-bottom: 6px;
+  padding: 2px 0 2px 0;
   display: flex;
   text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out all;
+}
+.HomeSliderSong-song:hover {
+  background: var(--background-header-menu);
 }
 .HomeSliderSong-song img {
   width: 50px;
   height: 50px;
-  margin: 0 10px 10px 0;
+  margin-right: 10px;
   border-radius: 10px;
 }
 .HomeSliderSong-description {

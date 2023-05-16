@@ -2,7 +2,7 @@
   width: 100%;
   margin-top: 20px;
 }
-.Search-container {
+.Search-container-input {
   width: 89%;
   margin: 0 20px;
   background: var(--background-header-menu);
@@ -36,4 +36,8 @@
 }
 .Search-icons:hover {
   color: var(--icons-buttons);
+}
+.Search-container-suggesting,
+.Search-container-podcast {
+  padding: 0 20px;
 }
