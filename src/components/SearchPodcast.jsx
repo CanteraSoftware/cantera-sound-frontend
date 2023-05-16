@@ -24,7 +24,7 @@ export function SearchPodcast() {
       {isloading ? <LoadingSearchPodcast /> : podcasts.map((podcast) => {
         return (
           <Link
-            to={`/player?id=${podcast.id}&1`}
+            to={`/player?id=${podcast.id}&2`}
             key={podcast.id}
             id={podcast.id}
             className="SearchCategories-item"

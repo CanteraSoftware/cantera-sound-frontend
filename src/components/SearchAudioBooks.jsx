@@ -24,7 +24,7 @@ export function SearchAudioBooks() {
       {isloading ? <LoadingSearchPodcast /> : audioBooks.map((audioBook) => {
         return (
           <Link
-            to={`/player?id=${audioBook.id}&1`}
+            to={`/player?id=${audioBook.id}&3`}
             key={audioBook.id}
             id={audioBook.id}
             className="SearchCategories-item"
