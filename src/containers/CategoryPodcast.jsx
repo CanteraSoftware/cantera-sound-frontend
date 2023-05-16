@@ -39,7 +39,7 @@ export function CategoryPodcast() {
       <Header />
       <div className="Category">
         <div className="Category-container">
-          <h2>Podcasts</h2>
+          <h2>Podcasts <span>({api.length})</span></h2>
           {isLoading ? (
             <LoadingDataFile />
           ) : (

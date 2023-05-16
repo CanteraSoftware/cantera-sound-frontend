@@ -39,7 +39,7 @@ export function CategoryAudioBooks() {
       <Header />
       <div className="Category">
         <div className="Category-container">
-          <h2>Audio Libros</h2>
+          <h2>Audio Libros <span>({api.length})</span></h2>
           {isLoading ? (
             <LoadingDataFile />
           ) : (
