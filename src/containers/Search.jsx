@@ -9,6 +9,7 @@ import '../styles/Search.css'
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgClose } from 'react-icons/cg'
 import { LoadingDataFile } from '../components/LoadingDataFile';
+import { SearchAudioBooks } from '../components/SearchAudioBooks';
 
 export function Search() {
   const [files, setFiles] = useState([])
@@ -82,6 +83,10 @@ export function Search() {
       <div className="Search-container-podcast">
         <h2>Podcast</h2>
         <SearchPodcast />
+      </div>
+      <div className="Search-container-audiobook">
+        <h2>Audio Libros</h2>
+        <SearchAudioBooks />
       </div>
       <FooterMenu />
     </div>

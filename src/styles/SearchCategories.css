@@ -1,5 +1,4 @@
-.SearchPodcast {
-  margin-bottom: 65px;
+.SearchCategories {
   padding-bottom: 5px;
   display: flex;
   gap: 10px;
@@ -7,15 +6,15 @@
   overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
 }
-.SearchPodcast::-webkit-scrollbar {
+.SearchCategories::-webkit-scrollbar {
   height: 1px;
   background-color: none;
 }
-.SearchPodcast::-webkit-scrollbar-thumb {
+.SearchCategories::-webkit-scrollbar-thumb {
   background-color: var(--icons-buttons);
   border-radius: 10px;
 }
-.SearchPodcast-item {
+.SearchCategories-item {
   width: 124px;
   height: auto;
   padding: 0 3px 4px 3px;
@@ -28,15 +27,15 @@
   border-radius: 10px;
   transition: 0.1s ease-in-out all;
 }
-.SearchPodcast-item:hover {
+.SearchCategories-item:hover {
   background: var(--background-header-menu);
 }
-.SearchPodcast-item img {
+.SearchCategories-item img {
   width: 124px;
   margin-bottom: 8px;
   border-radius: 10px;
 }
-.SearchPodcast-description h3 {
+.SearchCategories-description h3 {
   font-size: 1.4rem;
   margin-bottom: 3px;
 }
