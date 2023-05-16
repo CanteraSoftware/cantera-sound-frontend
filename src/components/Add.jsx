@@ -18,6 +18,7 @@ export function Add({ see, notSee }) {
   const [genders, setGenders] = useState([]);
   //alerta
   const [alert, setAlert] = useState(false)
+  const [alertError, setAlertError] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const [dataFile, setDataFile] = useState({})
   //canga mientras se envia el audio
@@ -105,6 +106,10 @@ export function Add({ see, notSee }) {
           setLoadingAudio(false);
           setAlert(true)
           setIsLoading(true)
+        })
+        .catch(error => {
+          setAlertError(true)
+          console.error('Ocurrió un error:', error);
         });
     }
   };
@@ -216,6 +221,7 @@ export function Add({ see, notSee }) {
             setAlert={setAlert}
             dataFile={dataFile}
           /> : null}
+          {alertError ? <div>ERROR</div> : null}
           {loadingAudio ? <UploadingAudio /> : null}
         </div>
       }
