@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/AddAlert.css";
 import { Link } from "react-router-dom";
+import "../styles/AddAlert.css";
 
 //icons
 import { VscHome } from "react-icons/vsc";
@@ -17,15 +17,15 @@ export function AddAlert({ see, notSee, alert, setAlert, dataFile }) {
       <div className="AddAlert-container">
         <div className="AddAlert-container-title">
           <h2>
-            Archivo Guardado <br />
+            Audio Guardado <br />
             <span>Exitosamente</span>.
           </h2>
         </div>
         <div className="AddAlert-container-btn">
-          <button className="AddAlert-btn" onClick={GoToHome}>
+          <Link className="AddAlert-btn" onClick={GoToHome} to={'/'}>
             <VscHome className="AddAlert-btn-icon" />
             Ir al inicio
-          </button>
+          </Link>
           <Link className="AddAlert-btn" to={`/player?id=${dataFile.id}&${dataFile.categoryId}`}>
             <BsPlayCircle className="AddAlert-btn-icon" />
             Reproducir audio
