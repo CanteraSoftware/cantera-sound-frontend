@@ -11,7 +11,7 @@ import { BiCategory } from 'react-icons/bi'
 import { BiAddToQueue } from 'react-icons/bi'
 import { CgClose } from 'react-icons/cg'
 
-export function FooterMenu() {
+export function FooterMenu(setStart) {
   const [seeModal, setSeeModal] = useState(false);
   const [seeCategories, setSeeCategories] = useState(false);
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Inicial } from "../components/Inicial";
 import { Header } from "../components/Header";
 import { HomeSwiperSlider } from "../components/HomeSwiperSlider";
 import { Categories } from "../components/Categories";
@@ -14,12 +13,7 @@ export function Home() {
   const [api, setApi] = useState([]);
   const [seeModal, setSeeModal] = useState(false);
   const [isloading, setIsLoading] = useState(true);
-  const [start, setStart] = useState(false);
-  
-  useEffect(()=>{
-    setTimeout(()=>{setStart(true)},3500)
-  },[])
-  
+
   useEffect(() => {
     fetch(url)
       .then((response) => {
@@ -49,7 +43,7 @@ export function Home() {
 
   return (
     <div className="Home">
-      { start ? null : <Inicial />}
+      { start ? <Inicial /> : null}
       <Header />
       <div className="Home-song-container">
         <h2>Canciones</h2>
@@ -64,7 +58,7 @@ export function Home() {
         </button>
       </div>
       <Add see={seeModal} notSee={setSeeModal} />
-      <FooterMenu />
+      <FooterMenu setStart={setStart}/>
     </div>
   );
 }
