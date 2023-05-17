@@ -3,36 +3,36 @@ import { Link } from 'react-router-dom';
 import { LoadingSearchPodcast } from './LoadingSearchPodcast';
 import '../styles/SearchCategories.css'
 
-export function SearchPodcast() {
-  const [podcasts, setPodcasts] = useState([])
+export function SearchAudioBooks() {
+  const [audioBooks, setAudioBooks] = useState([])
   const [isloading, setIsLoading] = useState(true);
 
-  const url = 'http://18.117.98.49:5000/api/v1/categories/2'
+  const url = 'http://18.117.98.49:5000/api/v1/categories/3'
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         data.files.sort(() => {return Math.random() - 0.5})
-        setPodcasts(data.files)
+        setAudioBooks(data.files)
         setIsLoading(false)
       })
   }, [])
 
   return (
     <div className='SearchCategories'>
-      {isloading ? <LoadingSearchPodcast /> : podcasts.map((podcast) => {
+      {isloading ? <LoadingSearchPodcast /> : audioBooks.map((audioBook) => {
         return (
           <Link
-            to={`/player?id=${podcast.id}&2`}
-            key={podcast.id}
-            id={podcast.id}
+            to={`/player?id=${audioBook.id}&3`}
+            key={audioBook.id}
+            id={audioBook.id}
             className="SearchCategories-item"
           >
-            <img src={podcast.imageUrl} alt={podcast.nameFile} />
+            <img src={audioBook.imageUrl} alt={audioBook.nameFile} />
             <div className='SearchCategories-description'>
-              <h3>{podcast.nameFile}</h3>
-              <p>{podcast.nameAuthor}</p>
+              <h3>{audioBook.nameFile}</h3>
+              <p>{audioBook.nameAuthor}</p>
             </div>
           </Link>
         )

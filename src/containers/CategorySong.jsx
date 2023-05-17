@@ -39,7 +39,7 @@ export function CategorySong() {
       <Header />
       <div className="Category">
         <div className="Category-container">
-          <h2>Canciones</h2>
+            <h2>Canciones <span>({api.length})</span></h2>
           {isLoading ? (
             <LoadingDataFile />
           ) : (
