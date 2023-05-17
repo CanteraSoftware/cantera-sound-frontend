@@ -58,8 +58,9 @@ h4 {
   color: var(--text-primary);
 }
 h5 {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 18px;
   color: var(--text-shadow);
 }
 h6 {

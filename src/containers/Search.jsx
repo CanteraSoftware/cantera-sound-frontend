@@ -37,6 +37,10 @@ export function Search() {
     filterSearch(e.target.value)
   }
 
+  const deleteSearch = () => {
+    setSearch('')
+  }
+
   const filterSearch = (searchTerm) => {
     let searchResults = filesSearch.filter((element) => {
       if (
@@ -64,26 +68,32 @@ export function Search() {
             placeholder="Qué quieres escuchar?"
             onChange={handleChange}
           />
-          <Link className="Search-icon-container" to='/'>
+          <button className="Search-icon-container" onClick={deleteSearch}>
             <CgClose className="Search-icons" />
-          </Link>
+          </button>
         </div>
       </div>
       <div className="Search-container-suggesting">
         {search === '' ? <div></div> :
-          [<h2>Resultados de tu búsqueda:</h2>,
-          files.map(file => {
-            return (
-            <DataFile
-              key={file.id}
-              id={file.id}
-              img={file.imageUrl}
-              title={file.nameFile}
-              artist={file.nameAuthor}
-              catId={file.categoryId}
-            />
-          )
-        })]}
+          [
+            <h2>Resultados de tu búsqueda:</h2>,
+            files.length === 0 ? (
+              <h5>No tenemos el audio que buscas. <br />
+                Pero, <span>¡Puedes agregarlo!</span>
+              </h5>
+            ) : (
+              files.map((file) => (
+                <DataFile
+                  key={file.id}
+                  id={file.id}
+                  img={file.imageUrl}
+                  title={file.nameFile}
+                  artist={file.nameAuthor}
+                  catId={file.categoryId}
+                />
+              ))
+            )
+          ]}
         <h2>Sugerencias para ti</h2>
         {isloading ? <LoadingDataFile /> : suggesting.map(sugg => {
           return (
