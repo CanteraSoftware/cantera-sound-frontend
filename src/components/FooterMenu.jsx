@@ -16,7 +16,7 @@ export function FooterMenu() {
   const [seeCategories, setSeeCategories] = useState(false);
 
   const closeAdd = () => {
-    setSeeModal(!seeModal);
+    setSeeModal(!seeModal)
   }
 
   const handleCategories = () => {
