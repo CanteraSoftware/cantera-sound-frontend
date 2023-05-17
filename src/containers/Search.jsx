@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DataFile } from '../components/DataFile';
+import { LoadingDataFile } from '../components/LoadingDataFile';
 import { SearchPodcast } from '../components/SearchPodcast';
+import { SearchAudioBooks } from '../components/SearchAudioBooks';
 import { FooterMenu } from '../components/FooterMenu';
 import '../styles/Search.css'
 
 //icons
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgClose } from 'react-icons/cg'
-import { LoadingDataFile } from '../components/LoadingDataFile';
-import { SearchAudioBooks } from '../components/SearchAudioBooks';
 
 export function Search() {
   const [files, setFiles] = useState([])
   const [filesSearch, setFilesSearch] = useState([])
+  const [suggesting, setSuggesting] = useState([])
   const [search, setSearch] = useState('')
   const [isloading, setIsLoading] = useState(true);
 
@@ -26,6 +27,7 @@ export function Search() {
         data.sort(() => {return Math.random() - 0.5})
         setFiles(data)
         setFilesSearch(data)
+        setSuggesting(data)
         setIsLoading(false)
       })
   }, [])
@@ -50,25 +52,28 @@ export function Search() {
 
   return (
     <div className='Search'>
-      <div className="Search-container-input">
-        <div className="Search-icon-container">
-          <AiOutlineSearch className="Search-icons" />
+      <div className='Search-container'>
+        <div className="Search-container-input">
+          <div className="Search-icon-container">
+            <AiOutlineSearch className="Search-icons" />
+          </div>
+          <input
+            className="Search-input"
+            type="text"
+            value={search}
+            placeholder="Qué quieres escuchar?"
+            onChange={handleChange}
+          />
+          <Link className="Search-icon-container" to='/'>
+            <CgClose className="Search-icons" />
+          </Link>
         </div>
-        <input
-          className="Search-input"
-          type="text"
-          value={search}
-          placeholder="Qué quieres escuchar?"
-          onChange={handleChange}
-        />
-        <Link className="Search-icon-container" to='/'>
-          <CgClose className="Search-icons" />
-        </Link>
       </div>
       <div className="Search-container-suggesting">
-        <h2>Sugerencias para ti</h2>
-        {isloading ? <LoadingDataFile /> : files.map(file => {
-          return (
+        {search === '' ? <div></div> :
+          [<h2>Resultados de tu búsqueda:</h2>,
+          files.map(file => {
+            return (
             <DataFile
               key={file.id}
               id={file.id}
@@ -78,7 +83,20 @@ export function Search() {
               catId={file.categoryId}
             />
           )
-        }).slice(0, 7)}
+        })]}
+        <h2>Sugerencias para ti</h2>
+        {isloading ? <LoadingDataFile /> : suggesting.map(sugg => {
+          return (
+            <DataFile
+              key={sugg.id}
+              id={sugg.id}
+              img={sugg.imageUrl}
+              title={sugg.nameFile}
+              artist={sugg.nameAuthor}
+              catId={sugg.categoryId}
+            />
+          )
+        }).slice(0, 6)}
       </div>
       <div className="Search-container-podcast">
         <h2>Podcast</h2>
