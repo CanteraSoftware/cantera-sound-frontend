@@ -37,6 +37,10 @@ export function Search() {
     filterSearch(e.target.value)
   }
 
+  const deleteSearch = () => {
+    setSearch('')
+  }
+
   const filterSearch = (searchTerm) => {
     let searchResults = filesSearch.filter((element) => {
       if (
@@ -64,9 +68,9 @@ export function Search() {
             placeholder="Qué quieres escuchar?"
             onChange={handleChange}
           />
-          <Link className="Search-icon-container" to='/'>
+          <button className="Search-icon-container" onClick={deleteSearch}>
             <CgClose className="Search-icons" />
-          </Link>
+          </button>
         </div>
       </div>
       <div className="Search-container-suggesting">
