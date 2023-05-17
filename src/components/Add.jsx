@@ -198,7 +198,7 @@ export function Add({ see, notSee }) {
                   className='Add-input-audio'
                   type="file"
                   name="uploads"
-                  accept=".mp3"
+                  accept=".mp3, .mp4, .m4a"
                   multiple
                   onChange={handleFileInputChange}
                 />
