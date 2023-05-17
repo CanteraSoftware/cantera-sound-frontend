@@ -6,7 +6,7 @@ import imgInicial from '../images/cat.png'
 export function Inicial(){
   return(
     <div className="inicio-content-imgInicio">
-          <img class="inicio-imgInicio" src={imgInicial} alt="cat cantera music" />
+          <img className="inicio-imgInicio" src={imgInicial} alt="cat cantera music" />
           <h1 className="inicio-texto">Cantera <span className="inicio-text2">Music</span></h1>          
         </div> 
   )
